@@ -12,7 +12,7 @@ Machine learning models are increasingly deployed in real-world applications suc
 
 For example, a census-income classifier trained on one demographic distribution may fail when tested on a population with different class proportions. Likewise, a sentiment classifier trained on IMDB movie reviews often performs poorly when applied to product reviews from Amazon, despite both being binary text classification tasks.
 
-This project will systematically evaluate how standard machine learning algorithms degrade under such conditions and compare techniques to improve robustness. By focusing on two canonical classification tasks—**income prediction (tabular data)** and **sentiment analysis (text)**—the project will highlight vulnerabilities of widely used models and explore methods to mitigate them.
+This project will systematically evaluate how standard machine learning algorithms degrade under such conditions and compare techniques to improve robustness. By focusing on two canonical classification tasks—**income classification (tabular data)** and **sentiment analysis (text)**—the project will highlight vulnerabilities of widely used models and explore methods to mitigate them.
 
 ---
 
@@ -25,7 +25,7 @@ The central research question is:
 * **Task framing:** Binary classification.
 * **Datasets:**
 
-  * **[UCI Adult Income dataset](https://archive.ics.uci.edu/dataset/2/adult)**  — predict whether an individual’s income exceeds \$50k/year.
+  * **[UCI Adult Income dataset](https://archive.ics.uci.edu/dataset/2/adult)**  — classify whether an individual’s income exceeds \$50k/year.
   * **[IMDB Movie Reviews dataset](https://ai.stanford.edu/~amaas/data/sentiment/)** — train sentiment models on movie reviews.
   * **[Amazon Reviews](https://www.cs.jhu.edu/~mdredze/datasets/sentiment/) (Multi-Domain Sentiment dataset)** — test models cross-domain to evaluate robustness.
 * **Algorithms compared:** KNN, Naïve Bayes, Decision Trees (CART), Random Forests, Gradient Boosted Trees (XGBoost), Support Vector Machines (SVM), shallow Neural Networks.
