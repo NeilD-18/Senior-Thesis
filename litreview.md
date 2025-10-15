@@ -21,7 +21,7 @@ This work is important because it challenges the idea that neural networks are f
 
 
 ### Szegedy et al. (2014) – Intriguing Properties of Neural Networks
-Szegedy, Zaremba, Sutskever, Bruna, Erhan, Goodfellow, and Fergus (2014) were among the first to uncover that deep neural networks, despite their impressive accuracy, are surprisingly fragile. They showed that small, carefully chosen perturbations to input data—imperceptible to humans—can cause a model to confidently misclassify an image. These inputs are known as adversarial examples.
+Szegedy, Zaremba, Sutskever, Bruna, Erhan, Goodfellow, and Fergus (2014) were among the first to uncover that deep neural networks, despite their impressive accuracy, are surprisingly fragile. They showed that small, carefully chosen perturbations to input data, invisible to humans, can cause a model to confidently misclassify an image. These inputs are known as adversarial examples.
 
 Their study found that adversarial examples are not just isolated to one model, they transfer across architectures. A test designed to fool one neural network often fools others trained on the same dataset, suggesting that these vulnerabilities stem from shared patterns in how models learn decision boundaries. This finding challenged the assumption that high test accuracy implies reliability, highlighting that deep models can behave unpredictably under small, non-random shifts.
 
