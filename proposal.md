@@ -28,6 +28,7 @@ The central research question is:
   * **[UCI Adult Income dataset](https://archive.ics.uci.edu/dataset/2/adult)**  — classify whether an individual’s income exceeds \$50k/year.
   * **[IMDB Movie Reviews dataset](https://ai.stanford.edu/~amaas/data/sentiment/)** — train sentiment models on movie reviews.
   * **[Amazon Reviews](https://www.cs.jhu.edu/~mdredze/datasets/sentiment/) (Multi-Domain Sentiment dataset)** — test models cross-domain to evaluate robustness.
+  * **[Airbnb Price Prediction](https://www.kaggle.com/competitions/airbnb-price-prediction/data)** - predict the price of Airbnb rentals
 * **Algorithms compared:** KNN, Naïve Bayes, Decision Trees (CART), Random Forests, Gradient Boosted Trees (XGBoost), Support Vector Machines (SVM), shallow Neural Networks.
 * **Robustness challenges studied:**
 
