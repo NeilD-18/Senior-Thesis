@@ -1,0 +1,12 @@
+dataset: airbnb
+model: random_forest_reg
+seed: 42
+test_size: 0.2
+val_size: 0.1
+
+model_params:
+  n_estimators: 100
+  max_depth: 10
+  random_state: 42
+
+output_dir: outputs/runs
