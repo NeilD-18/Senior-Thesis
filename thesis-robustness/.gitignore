@@ -41,6 +41,7 @@ data/processed/
 # Outputs
 outputs/runs/
 outputs/summary/
+outputs/severity_grids/
 *.log
 
 # Jupyter

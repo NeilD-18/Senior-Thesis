@@ -1,0 +1,22 @@
+# IMDB dataset with token dropout corruption
+dataset: imdb
+model: random_forest
+seed: 42
+test_size: 0.2
+val_size: 0.1
+
+preprocessing:
+  max_features: 5000
+  ngram_range: [1, 2]
+  use_train: true
+
+model_params:
+  n_estimators: 100
+  max_depth: 10
+  random_state: 42
+
+corruption:
+  type: token_dropout
+  severity: 0.3  # 30% of tokens dropped
+
+output_dir: outputs/runs

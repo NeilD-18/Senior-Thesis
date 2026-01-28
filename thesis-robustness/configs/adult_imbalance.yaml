@@ -1,0 +1,18 @@
+# Adult dataset with class imbalance corruption
+dataset: adult
+model: random_forest
+seed: 42
+test_size: 0.2
+val_size: 0.1
+
+model_params:
+  n_estimators: 100
+  max_depth: 10
+  random_state: 42
+
+corruption:
+  type: class_imbalance
+  severity: 0.1  # Minority class will be 10% of majority class size
+  minority_class: 1  # Class label for minority class (>50K)
+
+output_dir: outputs/runs

@@ -1,0 +1,18 @@
+# Adult dataset with additive noise corruption
+dataset: adult
+model: random_forest
+seed: 42
+test_size: 0.2
+val_size: 0.1
+
+model_params:
+  n_estimators: 100
+  max_depth: 10
+  random_state: 42
+
+corruption:
+  type: additive_noise
+  severity: 0.3  # 30% of feature std as noise scale
+  noise_type: gaussian  # or 'uniform'
+
+output_dir: outputs/runs

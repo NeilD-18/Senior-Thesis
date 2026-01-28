@@ -3,9 +3,10 @@
 
 set -e  # Exit on error
 
-# Get the directory where the script is located
+# Get the directory where the script is located and go to project root
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-cd "$SCRIPT_DIR"
+PROJECT_ROOT="$( cd "$SCRIPT_DIR/.." && pwd )"
+cd "$PROJECT_ROOT"
 
 # Activate virtual environment if it exists and isn't already activated
 if [ -d "venv" ] && [ -z "$VIRTUAL_ENV" ]; then
