@@ -181,7 +181,13 @@ def run_corruption_experiment(
         print("No corruption applied (baseline)")
     
     # Handle missing values if corruption introduced them
-    if np.isnan(X_train).any() or (sparse.issparse(X_train) and np.isnan(X_train.data).any()):
+    has_nan = False
+    if sparse.issparse(X_train):
+        has_nan = np.isnan(X_train.data).any() if X_train.data.size > 0 else False
+    else:
+        has_nan = np.isnan(X_train).any()
+    
+    if has_nan:
         from sklearn.impute import SimpleImputer
         print("Imputing missing values...")
         imputer = SimpleImputer(strategy='mean')

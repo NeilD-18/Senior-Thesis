@@ -8,10 +8,10 @@ Empirical evaluation of machine learning model robustness under distribution shi
 # 1. Activate virtual environment
 source venv/bin/activate
 
-# 2. Run a single corruption experiment
-python -m src.cli.run_corruption --config configs/adult_noise.yaml
+# 2. Run a baseline experiment (no corruption)
+python -m src.cli.run_baseline --config configs/adult_baseline.yaml
 
-# 3. Run a severity grid (multiple corruption levels)
+# 3. Run a severity grid (Week 4 pilots)
 python -m src.cli.run_severity_grid \
     --config configs/adult_noise.yaml \
     --min-severity 0.0 \
@@ -19,9 +19,12 @@ python -m src.cli.run_severity_grid \
     --n-points 11
 
 # 4. Analyze results
-python -m src.cli.analyze_severity_grid \
-    --summary outputs/severity_grids/severity_grid_summary.yaml
+python scripts/plot_results_simple.py \
+    --dir outputs/severity_grids \
+    --plot outputs/severity_grids/degradation_curves.png
 ```
+
+**📋 Week 4 Focus:** See [docs/WEEK4_PILOT_GUIDE.md](docs/WEEK4_PILOT_GUIDE.md) for pilot experiment instructions.
 
 ## Table of Contents
 

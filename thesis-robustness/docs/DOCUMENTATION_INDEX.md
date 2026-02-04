@@ -35,13 +35,30 @@ Complete guide to all documentation in this project.
    - Pipeline architecture
    - Configuration schemas
 
-6. **[CROSS_DOMAIN_NOTE.md](CROSS_DOMAIN_NOTE.md)** - Domain shift notes
+6. **[WEEK4_PILOT_GUIDE.md](WEEK4_PILOT_GUIDE.md)** - Week 4 pilot experiments guide
+   - Running pilot severity grids
+   - Validation checklist
+   - Analyzing pilot results
+   - Runtime expectations
+
+7. **[WEEK4_CHECKLIST.md](WEEK4_CHECKLIST.md)** - Week 4 task checklist
+   - Pre-flight checks
+   - Experiment validation steps
+   - Deliverables tracking
+
+8. **[CROSS_DOMAIN_NOTE.md](CROSS_DOMAIN_NOTE.md)** - Domain shift notes
    - Implementation approach
    - Differences from corruption
 
-7. **[VERIFICATION_RESULTS.md](VERIFICATION_RESULTS.md)** - Test results
+9. **[VERIFICATION_RESULTS.md](VERIFICATION_RESULTS.md)** - Test results
    - Verification status
    - Test coverage
+
+## Historical Documentation
+
+- **[week1/](week1/)** - Week 1 documentation archive
+  - Baseline results and verification
+  - Week 1 setup guides
 
 ## Code Structure
 
@@ -62,6 +79,7 @@ Complete guide to all documentation in this project.
 ## Quick Links
 
 - **New to the project?** → Start with [QUICKSTART.md](QUICKSTART.md)
+- **Running Week 4 pilots?** → See [WEEK4_PILOT_GUIDE.md](WEEK4_PILOT_GUIDE.md) and [WEEK4_CHECKLIST.md](WEEK4_CHECKLIST.md)
 - **Running experiments?** → See [../README.md](../README.md) Running Experiments section
 - **Interpreting results?** → Read [RESULTS_GUIDE.md](RESULTS_GUIDE.md)
 - **Need a command?** → Check [USAGE_SUMMARY.md](USAGE_SUMMARY.md)

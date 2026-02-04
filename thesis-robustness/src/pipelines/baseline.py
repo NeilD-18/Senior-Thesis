@@ -52,6 +52,9 @@ def run_baseline(config: Dict[str, Any], run_name: str = None):
     
     # Evaluate on validation set
     y_val_pred = model.predict(X_val)
+    y_val_proba = None
+    
+    # Try to get probability scores for AUROC
     if hasattr(model, 'predict_proba'):
         try:
             y_val_proba = model.predict_proba(X_val)
@@ -61,11 +64,18 @@ def run_baseline(config: Dict[str, Any], run_name: str = None):
                 y_val_proba = None
         except:
             y_val_proba = None
-    else:
-        y_val_proba = None
+    elif hasattr(model, 'decision_function'):
+        # For LinearSVC and similar models without predict_proba
+        try:
+            y_val_proba = model.decision_function(X_val)
+        except:
+            y_val_proba = None
     
     # Evaluate on test set
     y_test_pred = model.predict(X_test)
+    y_test_proba = None
+    
+    # Try to get probability scores for AUROC
     if hasattr(model, 'predict_proba'):
         try:
             y_test_proba = model.predict_proba(X_test)
@@ -75,8 +85,12 @@ def run_baseline(config: Dict[str, Any], run_name: str = None):
                 y_test_proba = None
         except:
             y_test_proba = None
-    else:
-        y_test_proba = None
+    elif hasattr(model, 'decision_function'):
+        # For LinearSVC and similar models without predict_proba
+        try:
+            y_test_proba = model.decision_function(X_test)
+        except:
+            y_test_proba = None
     
     # Compute metrics
     is_regression = dataset_name == 'airbnb' or 'reg' in model_name

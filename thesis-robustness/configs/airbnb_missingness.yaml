@@ -1,6 +1,6 @@
 # Airbnb dataset with missingness corruption
 dataset: airbnb
-model: random_forest
+model: random_forest_reg
 seed: 42
 test_size: 0.2
 val_size: 0.1
