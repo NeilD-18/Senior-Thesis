@@ -1,0 +1,201 @@
+config_file: configs/adult_noise.yaml
+model: xgboost
+results:
+- run_dir: outputs/week5/adult_noise_xgb/adult_xgboost_additive_noise_0.00_seed42_20260213_104728
+  seed: 42
+  severity: 0.0
+  test_metrics:
+    accuracy: 0.8480928689883914
+    auroc: 0.8699477191840902
+    f1: 0.8373307980754476
+  val_metrics:
+    accuracy: 0.8536369666150785
+    auroc: 0.869022286297662
+    f1: 0.8443966508959154
+- run_dir: outputs/week5/adult_noise_xgb/adult_xgboost_additive_noise_0.00_seed43_20260213_104748
+  seed: 43
+  severity: 0.0
+  test_metrics:
+    accuracy: 0.843338861249309
+    auroc: 0.8649538032545938
+    f1: 0.831712649191675
+  val_metrics:
+    accuracy: 0.854300243201415
+    auroc: 0.8682123022961253
+    f1: 0.8417850509164252
+- run_dir: outputs/week5/adult_noise_xgb/adult_xgboost_additive_noise_0.00_seed44_20260213_104756
+  seed: 44
+  severity: 0.0
+  test_metrics:
+    accuracy: 0.844555002763958
+    auroc: 0.8581146301374118
+    f1: 0.8332970796327799
+  val_metrics:
+    accuracy: 0.8456776475790405
+    auroc: 0.8597363289385802
+    f1: 0.8359348373494697
+- run_dir: outputs/week5/adult_noise_xgb/adult_xgboost_additive_noise_0.25_seed42_20260213_104803
+  seed: 42
+  severity: 0.25
+  test_metrics:
+    accuracy: 0.8461028192371476
+    auroc: 0.8542580020134892
+    f1: 0.8182761048943363
+  val_metrics:
+    accuracy: 0.850320583683396
+    auroc: 0.8515251139166865
+    f1: 0.8240690299221767
+- run_dir: outputs/week5/adult_noise_xgb/adult_xgboost_additive_noise_0.25_seed43_20260213_104811
+  seed: 43
+  severity: 0.25
+  test_metrics:
+    accuracy: 0.8404643449419569
+    auroc: 0.8510569141714446
+    f1: 0.8294427249004013
+  val_metrics:
+    accuracy: 0.8399292504974575
+    auroc: 0.8483600162667522
+    f1: 0.826913224527589
+- run_dir: outputs/week5/adult_noise_xgb/adult_xgboost_additive_noise_0.25_seed44_20260213_104818
+  seed: 44
+  severity: 0.25
+  test_metrics:
+    accuracy: 0.8438916528468767
+    auroc: 0.8469349630251273
+    f1: 0.8198379574170471
+  val_metrics:
+    accuracy: 0.8408136192792395
+    auroc: 0.8529011512398457
+    f1: 0.8162851501416474
+- run_dir: outputs/week5/adult_noise_xgb/adult_xgboost_additive_noise_0.50_seed42_20260213_104824
+  seed: 42
+  severity: 0.5
+  test_metrics:
+    accuracy: 0.8424543946932007
+    auroc: 0.8464160561559794
+    f1: 0.7998758395686374
+  val_metrics:
+    accuracy: 0.8434667256245855
+    auroc: 0.8412171893819905
+    f1: 0.8045248550719605
+- run_dir: outputs/week5/adult_noise_xgb/adult_xgboost_additive_noise_0.50_seed43_20260213_104834
+  seed: 43
+  severity: 0.5
+  test_metrics:
+    accuracy: 0.8410171365395246
+    auroc: 0.8366827790530033
+    f1: 0.8184161193565748
+  val_metrics:
+    accuracy: 0.837055051956666
+    auroc: 0.8353452025083558
+    f1: 0.8118570566202898
+- run_dir: outputs/week5/adult_noise_xgb/adult_xgboost_additive_noise_0.50_seed44_20260213_104840
+  seed: 44
+  severity: 0.5
+  test_metrics:
+    accuracy: 0.8410171365395246
+    auroc: 0.8388523199347266
+    f1: 0.801466523716879
+  val_metrics:
+    accuracy: 0.8394870661065664
+    auroc: 0.8397401908801696
+    f1: 0.8002794713578331
+- run_dir: outputs/week5/adult_noise_xgb/adult_xgboost_additive_noise_0.75_seed42_20260213_104846
+  seed: 42
+  severity: 0.75
+  test_metrics:
+    accuracy: 0.8414593698175787
+    auroc: 0.8228110012139895
+    f1: 0.8003111486241954
+  val_metrics:
+    accuracy: 0.8432456334291399
+    auroc: 0.8177710737044843
+    f1: 0.8036519189705202
+- run_dir: outputs/week5/adult_noise_xgb/adult_xgboost_additive_noise_0.75_seed43_20260213_104852
+  seed: 43
+  severity: 0.75
+  test_metrics:
+    accuracy: 0.8347153123272526
+    auroc: 0.8143895990550758
+    f1: 0.8162137901244709
+  val_metrics:
+    accuracy: 0.837055051956666
+    auroc: 0.8072381045844848
+    f1: 0.8202085590505013
+- run_dir: outputs/week5/adult_noise_xgb/adult_xgboost_additive_noise_0.75_seed44_20260213_104858
+  seed: 44
+  severity: 0.75
+  test_metrics:
+    accuracy: 0.8415699281370923
+    auroc: 0.8244764636589543
+    f1: 0.8074552444292401
+  val_metrics:
+    accuracy: 0.8357284987839929
+    auroc: 0.8224834190679658
+    f1: 0.8034563040608256
+seeds:
+- 42
+- 43
+- 44
+severities:
+- 0.0
+- 0.25
+- 0.5
+- 0.75
+stability_aggregates:
+- n_seeds: 3
+  severity: 0.0
+  test_accuracy_mean: 0.8453289110005527
+  test_accuracy_std: 0.002016489997465204
+  test_auroc_mean: 0.8643387175253654
+  test_auroc_std: 0.004850377781670221
+  test_f1_mean: 0.8341135089666342
+  test_f1_std: 0.0023651380316227206
+  val_accuracy_mean: 0.8512049524651779
+  val_accuracy_std: 0.003917763684870482
+  val_auroc_mean: 0.8656569725107892
+  val_auroc_std: 0.004199566148428578
+  val_f1_mean: 0.8407055130539368
+  val_f1_std: 0.0035378546814995625
+- n_seeds: 3
+  severity: 0.25
+  test_accuracy_mean: 0.8434862723419938
+  test_accuracy_std: 0.002319676429976961
+  test_auroc_mean: 0.850749959736687
+  test_auroc_std: 0.0029974868112059372
+  test_f1_mean: 0.8225189290705949
+  test_f1_std: 0.004937209559073324
+  val_accuracy_mean: 0.843687817820031
+  val_accuracy_std: 0.0047039497080795835
+  val_auroc_mean: 0.8509287604744281
+  val_auroc_std: 0.0019012635766832001
+  val_f1_mean: 0.8224224681971376
+  val_f1_std: 0.004492391005841583
+- n_seeds: 3
+  severity: 0.5
+  test_accuracy_mean: 0.84149622259075
+  test_accuracy_std: 0.0006775299911866963
+  test_auroc_mean: 0.840650385047903
+  test_auroc_std: 0.004172045813446639
+  test_f1_mean: 0.8065861608806971
+  test_f1_std: 0.008390212836816083
+  val_accuracy_mean: 0.8400029478959393
+  val_accuracy_std: 0.0026428507741235274
+  val_auroc_mean: 0.8387675275901719
+  val_auroc_std: 0.0024939410401767104
+  val_f1_mean: 0.8055537943500277
+  val_f1_std: 0.004782200132144644
+- n_seeds: 3
+  severity: 0.75
+  test_accuracy_mean: 0.8392482034273079
+  test_accuracy_std: 0.003205555810279365
+  test_auroc_mean: 0.8205590213093399
+  test_auroc_std: 0.004415108115131782
+  test_f1_mean: 0.8079933943926355
+  test_f1_std: 0.006503368650625012
+  val_accuracy_mean: 0.8386763947232662
+  val_accuracy_std: 0.003276013084367724
+  val_auroc_mean: 0.815830865785645
+  val_auroc_std: 0.0063732884500496715
+  val_f1_mean: 0.8091055940272823
+  val_f1_std: 0.007851388010126642
