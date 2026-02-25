@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 from pathlib import Path
-from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.preprocessing import LabelEncoder
 from ..common.registry import register_dataset
 
 
@@ -89,10 +89,6 @@ def load_airbnb(data_dir: Path = None, **kwargs):
     
     # Log-transform target for regression (handles skewed distributions)
     y = np.log1p(y)  # log(1 + y) to handle zeros
-    
-    # Scale features
-    scaler = StandardScaler()
-    X = scaler.fit_transform(X)
     
     print(f"Final feature matrix shape: {X.shape}")
     print(f"Target range: [{y.min():.2f}, {y.max():.2f}]")

@@ -12,6 +12,7 @@ def load_amazon(
     domain: str = 'books',  # 'books', 'dvd', 'electronics', 'kitchen'
     max_features=5000, 
     ngram_range=(1, 2),
+    vectorize=True,
     **kwargs
 ):
     """
@@ -41,6 +42,7 @@ def load_amazon(
         domain: Domain to load ('books', 'dvd', 'electronics', 'kitchen')
         max_features: Maximum number of TF-IDF features
         ngram_range: N-gram range for TF-IDF (will be converted to tuple if list)
+        vectorize: If True, return TF-IDF features. If False, return raw text.
     
     Returns:
         X: TF-IDF feature matrix
@@ -159,6 +161,10 @@ def load_amazon(
     texts = np.array(texts)
     y = np.array(labels)
     
+    if not vectorize:
+        print(f"Returning raw text domain split: {texts.shape}")
+        return texts, y
+
     # Create TF-IDF features (using same vectorizer settings as IMDB for consistency)
     print(f"Creating TF-IDF features (max_features={max_features}, ngram_range={ngram_range})...")
     vectorizer = TfidfVectorizer(
@@ -170,7 +176,7 @@ def load_amazon(
         max_df=0.95,
     )
     X = vectorizer.fit_transform(texts)  # Keep sparse for efficiency
-    
+
     print(f"TF-IDF matrix shape: {X.shape}")
-    
+
     return X, y

@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 from pathlib import Path
-from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.preprocessing import LabelEncoder
 from ..common.registry import register_dataset
 
 
@@ -70,9 +70,5 @@ def load_adult(data_dir: Path = None, **kwargs):
     # Handle binary target encoding if needed
     if y.dtype == object or isinstance(y[0], str):
         y = (y == '>50K').astype(int) if isinstance(y[0], str) else y
-    
-    # Scale features
-    scaler = StandardScaler()
-    X = scaler.fit_transform(X)
     
     return X, y

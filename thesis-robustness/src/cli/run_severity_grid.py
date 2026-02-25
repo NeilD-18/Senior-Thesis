@@ -82,6 +82,8 @@ def main():
     
     if args.model:
         base_config['model'] = args.model
+        # Clear model_params when overriding model, since they may be incompatible
+        base_config.pop('model_params', None)
     
     if args.severities:
         severities = [float(s.strip()) for s in args.severities.split(',')]

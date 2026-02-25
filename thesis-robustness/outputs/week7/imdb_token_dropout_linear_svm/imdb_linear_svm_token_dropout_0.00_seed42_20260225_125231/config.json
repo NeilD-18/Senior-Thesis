@@ -1,0 +1,20 @@
+{
+  "dataset": "imdb",
+  "model": "linear_svm",
+  "seed": 42,
+  "test_size": 0.2,
+  "val_size": 0.1,
+  "preprocessing": {
+    "max_features": 5000,
+    "ngram_range": [
+      1,
+      2
+    ],
+    "use_train": true
+  },
+  "corruption": {
+    "type": "token_dropout",
+    "severity": 0.0
+  },
+  "output_dir": "outputs/week7/imdb_token_dropout_linear_svm"
+}

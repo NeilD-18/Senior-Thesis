@@ -2,6 +2,7 @@
 from pathlib import Path
 import numpy as np
 from typing import Dict, Any
+from scipy import sparse
 
 # Import datasets and models to trigger registration
 from .. import datasets, models
@@ -11,6 +12,59 @@ from ..common.split import train_val_test_split
 from ..common.metrics import compute_classification_metrics, compute_regression_metrics
 from ..common.registry import get_dataset, get_model
 from ..common.logging import RunLogger
+
+
+def _is_text_data(X) -> bool:
+    """Return True if X looks like a 1D array/list of raw text strings."""
+    if sparse.issparse(X):
+        return False
+    if isinstance(X, np.ndarray):
+        if X.ndim != 1 or X.size == 0:
+            return False
+        sample = X[0]
+        return isinstance(sample, str)
+    if isinstance(X, list):
+        return len(X) > 0 and isinstance(X[0], str)
+    return False
+
+
+def _vectorize_text_splits(X_train, X_val, X_test, preprocessing_cfg):
+    """
+    Fit TF-IDF on training text only, then transform val/test.
+    This avoids vocabulary/IDF leakage from val/test into train.
+    """
+    from sklearn.feature_extraction.text import TfidfVectorizer
+
+    ngram_range = preprocessing_cfg.get('ngram_range', (1, 2))
+    if isinstance(ngram_range, list):
+        ngram_range = tuple(ngram_range)
+
+    vectorizer = TfidfVectorizer(
+        max_features=preprocessing_cfg.get('max_features', 5000),
+        ngram_range=ngram_range,
+        stop_words='english',
+        lowercase=True,
+        min_df=2,
+        max_df=0.95,
+    )
+    X_train_vec = vectorizer.fit_transform(X_train)
+    X_val_vec = vectorizer.transform(X_val)
+    X_test_vec = vectorizer.transform(X_test)
+    return X_train_vec, X_val_vec, X_test_vec
+
+
+def _scale_dense_splits(X_train, X_val, X_test):
+    """Fit scaler on X_train only and transform val/test."""
+    if sparse.issparse(X_train):
+        return X_train, X_val, X_test
+    if not np.issubdtype(np.asarray(X_train).dtype, np.number):
+        return X_train, X_val, X_test
+    from sklearn.preprocessing import StandardScaler
+    scaler = StandardScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_val_scaled = scaler.transform(X_val)
+    X_test_scaled = scaler.transform(X_test)
+    return X_train_scaled, X_val_scaled, X_test_scaled
 
 
 def run_baseline(config: Dict[str, Any], run_name: str = None):
@@ -28,7 +82,11 @@ def run_baseline(config: Dict[str, Any], run_name: str = None):
     # Get dataset
     dataset_name = config['dataset']
     print(f"Loading dataset: {dataset_name}")
-    X, y = get_dataset(dataset_name, **config.get('preprocessing', {}))
+    preprocessing_cfg = config.get('preprocessing', {}).copy()
+    # Load raw text so TF-IDF can be fit on train split only.
+    if dataset_name in ('imdb', 'amazon'):
+        preprocessing_cfg.setdefault('vectorize', False)
+    X, y = get_dataset(dataset_name, **preprocessing_cfg)
     print(f"Dataset shape: {X.shape}, Target shape: {y.shape}")
     
     # Split data
@@ -40,10 +98,19 @@ def run_baseline(config: Dict[str, Any], run_name: str = None):
     )
     
     print(f"Train: {X_train.shape[0]}, Val: {X_val.shape[0]}, Test: {X_test.shape[0]}")
+
+    # Fit text vectorizer on train split only for text datasets.
+    if _is_text_data(X_train):
+        print("Vectorizing text (fit on train split only)...")
+        X_train, X_val, X_test = _vectorize_text_splits(X_train, X_val, X_test, preprocessing_cfg)
+        print(f"Vectorized shapes - Train: {X_train.shape}, Val: {X_val.shape}, Test: {X_test.shape}")
+
+    # Scale dense numeric features using train split only.
+    X_train, X_val, X_test = _scale_dense_splits(X_train, X_val, X_test)
     
     # Get model
     model_name = config['model']
-    model_params = config.get('model_params', {})
+    model_params = config.get('model_params', {}).copy()
     model_params['random_state'] = seed  # Ensure reproducibility
     model = get_model(model_name, **model_params)
     

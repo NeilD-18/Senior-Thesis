@@ -1,0 +1,13 @@
+{
+  "dataset": "adult",
+  "model": "svm_rbf",
+  "seed": 42,
+  "test_size": 0.2,
+  "val_size": 0.1,
+  "corruption": {
+    "type": "additive_noise",
+    "severity": 0.4,
+    "noise_type": "gaussian"
+  },
+  "output_dir": "outputs/week6/adult_noise_svm"
+}

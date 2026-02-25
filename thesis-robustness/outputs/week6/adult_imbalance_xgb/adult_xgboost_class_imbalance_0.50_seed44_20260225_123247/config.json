@@ -1,0 +1,13 @@
+{
+  "dataset": "adult",
+  "model": "xgboost",
+  "seed": 44,
+  "test_size": 0.2,
+  "val_size": 0.1,
+  "corruption": {
+    "type": "class_imbalance",
+    "severity": 0.5,
+    "minority_class": 1
+  },
+  "output_dir": "outputs/week6/adult_imbalance_xgb"
+}

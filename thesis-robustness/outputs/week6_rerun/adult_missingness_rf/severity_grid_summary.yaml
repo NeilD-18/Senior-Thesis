@@ -1,0 +1,15 @@
+config_file: configs/adult_missingness.yaml
+model: random_forest
+results: []
+seeds:
+- 42
+- 43
+- 44
+severities:
+- 0.0
+- 0.1
+- 0.2
+- 0.30000000000000004
+- 0.4
+- 0.5
+stability_aggregates: []

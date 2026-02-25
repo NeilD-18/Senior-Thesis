@@ -1,0 +1,18 @@
+[
+  {
+    "severity": 0.0,
+    "n_seeds": 2,
+    "val_accuracy_mean": 0.850320583683396,
+    "val_accuracy_std": 0.0,
+    "val_f1_mean": 0.8110755898001447,
+    "val_f1_std": 0.0021214139984063185,
+    "val_auroc_mean": 0.8284759592371007,
+    "val_auroc_std": 0.004339036110212913,
+    "test_accuracy_mean": 0.8474847982310669,
+    "test_accuracy_std": 0.0013819789939192861,
+    "test_f1_mean": 0.8065681502209262,
+    "test_f1_std": 0.0032498564541392216,
+    "test_auroc_mean": 0.8273786879767717,
+    "test_auroc_std": 0.003767922323022199
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "dataset": "adult",
+  "model": "xgboost",
+  "seed": 44,
+  "test_size": 0.2,
+  "val_size": 0.1,
+  "corruption": {
+    "type": "missingness",
+    "severity": 0.30000000000000004,
+    "missing_value": null
+  },
+  "output_dir": "outputs/week6/adult_missingness_xgb"
+}

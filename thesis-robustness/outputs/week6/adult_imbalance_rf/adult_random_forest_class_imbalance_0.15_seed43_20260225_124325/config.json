@@ -1,0 +1,13 @@
+{
+  "dataset": "adult",
+  "model": "random_forest",
+  "seed": 43,
+  "test_size": 0.2,
+  "val_size": 0.1,
+  "corruption": {
+    "type": "class_imbalance",
+    "severity": 0.15,
+    "minority_class": 1
+  },
+  "output_dir": "outputs/week6/adult_imbalance_rf"
+}

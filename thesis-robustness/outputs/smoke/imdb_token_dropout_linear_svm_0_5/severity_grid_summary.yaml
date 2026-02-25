@@ -1,0 +1,30 @@
+config_file: configs/imdb_token_dropout.yaml
+model: linear_svm
+results:
+- run_dir: outputs/smoke/imdb_token_dropout_linear_svm_0_5/imdb_linear_svm_token_dropout_0.00_seed42_20260225_132709
+  seed: 42
+  severity: 0.0
+  test_metrics:
+    accuracy: 0.8594
+    auroc: 0.9370025599999999
+    f1: 0.8593914453755366
+  val_metrics:
+    accuracy: 0.8656
+    auroc: 0.94508288
+    f1: 0.86558546172354
+- run_dir: outputs/smoke/imdb_token_dropout_linear_svm_0_5/imdb_linear_svm_token_dropout_0.50_seed42_20260225_132715
+  seed: 42
+  severity: 0.5
+  test_metrics:
+    accuracy: 0.8636
+    auroc: 0.9362476799999999
+    f1: 0.8635936925723446
+  val_metrics:
+    accuracy: 0.8704
+    auroc: 0.9485312
+    f1: 0.8703992534997002
+seeds:
+- 42
+severities:
+- 0.0
+- 0.5

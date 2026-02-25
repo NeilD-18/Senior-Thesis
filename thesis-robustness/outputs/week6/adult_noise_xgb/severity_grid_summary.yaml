@@ -1,0 +1,537 @@
+config_file: configs/adult_noise.yaml
+model: xgboost
+results:
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.00_seed42_20260225_121526
+  seed: 42
+  severity: 0.0
+  test_metrics:
+    accuracy: 0.8480928689883914
+    auroc: 0.8699477191840902
+    f1: 0.8373307980754476
+  val_metrics:
+    accuracy: 0.8536369666150785
+    auroc: 0.869022286297662
+    f1: 0.8443966508959154
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.00_seed43_20260225_121530
+  seed: 43
+  severity: 0.0
+  test_metrics:
+    accuracy: 0.843338861249309
+    auroc: 0.8649538032545938
+    f1: 0.831712649191675
+  val_metrics:
+    accuracy: 0.854300243201415
+    auroc: 0.8682123022961253
+    f1: 0.8417850509164252
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.00_seed44_20260225_121542
+  seed: 44
+  severity: 0.0
+  test_metrics:
+    accuracy: 0.844555002763958
+    auroc: 0.8581146301374118
+    f1: 0.8332970796327799
+  val_metrics:
+    accuracy: 0.8456776475790405
+    auroc: 0.8597363289385802
+    f1: 0.8359348373494697
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.10_seed42_20260225_121545
+  seed: 42
+  severity: 0.1
+  test_metrics:
+    accuracy: 0.847208402432283
+    auroc: 0.8621385635803462
+    f1: 0.8184503638488663
+  val_metrics:
+    accuracy: 0.8602697324784435
+    auroc: 0.8623480816670032
+    f1: 0.8369969938168057
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.10_seed43_20260225_121548
+  seed: 43
+  severity: 0.1
+  test_metrics:
+    accuracy: 0.8461028192371476
+    auroc: 0.8612416199497493
+    f1: 0.8367348940142807
+  val_metrics:
+    accuracy: 0.850762768074287
+    auroc: 0.8621804013877573
+    f1: 0.8389339240528704
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.10_seed44_20260225_121552
+  seed: 44
+  severity: 0.1
+  test_metrics:
+    accuracy: 0.8486456605859591
+    auroc: 0.8537709144888437
+    f1: 0.8274089272361446
+  val_metrics:
+    accuracy: 0.8461198319699315
+    auroc: 0.8567060815342709
+    f1: 0.8250513237567887
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.20_seed42_20260225_121555
+  seed: 42
+  severity: 0.2
+  test_metrics:
+    accuracy: 0.844555002763958
+    auroc: 0.8553612638625983
+    f1: 0.8153945689187675
+  val_metrics:
+    accuracy: 0.8500994914879505
+    auroc: 0.8504186005792205
+    f1: 0.8249587225248689
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.20_seed43_20260225_121558
+  seed: 43
+  severity: 0.2
+  test_metrics:
+    accuracy: 0.839690436705362
+    auroc: 0.8522333914054758
+    f1: 0.8301118365690464
+  val_metrics:
+    accuracy: 0.8363917753703294
+    auroc: 0.8502113830551841
+    f1: 0.8237564977112602
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.20_seed44_20260225_121603
+  seed: 44
+  severity: 0.2
+  test_metrics:
+    accuracy: 0.8490878938640133
+    auroc: 0.8517745485139527
+    f1: 0.8296230594352515
+  val_metrics:
+    accuracy: 0.8458987397744859
+    auroc: 0.8573102600562276
+    f1: 0.8261384312833596
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.30_seed42_20260225_121607
+  seed: 42
+  severity: 0.30000000000000004
+  test_metrics:
+    accuracy: 0.8495301271420674
+    auroc: 0.8622898488965087
+    f1: 0.8264701009428054
+  val_metrics:
+    accuracy: 0.854300243201415
+    auroc: 0.8587173623574365
+    f1: 0.8330426922685145
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.30_seed43_20260225_121612
+  seed: 43
+  severity: 0.30000000000000004
+  test_metrics:
+    accuracy: 0.83681592039801
+    auroc: 0.8523384702671396
+    f1: 0.8270655660523534
+  val_metrics:
+    accuracy: 0.8421401724519124
+    auroc: 0.8485208128292712
+    f1: 0.8310799112184263
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.30_seed44_20260225_121616
+  seed: 44
+  severity: 0.30000000000000004
+  test_metrics:
+    accuracy: 0.8453289110005527
+    auroc: 0.8454358349899106
+    f1: 0.8166499400076195
+  val_metrics:
+    accuracy: 0.8470042007517135
+    auroc: 0.8551387121872146
+    f1: 0.8176299659036491
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.40_seed42_20260225_121620
+  seed: 42
+  severity: 0.4
+  test_metrics:
+    accuracy: 0.8497512437810946
+    auroc: 0.8560067419939263
+    f1: 0.826642019475445
+  val_metrics:
+    accuracy: 0.848109661728941
+    auroc: 0.8513000693313828
+    f1: 0.8257852753747272
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.40_seed43_20260225_121624
+  seed: 43
+  severity: 0.4
+  test_metrics:
+    accuracy: 0.8410171365395246
+    auroc: 0.8503189348666402
+    f1: 0.8231835993863961
+  val_metrics:
+    accuracy: 0.841476895865576
+    auroc: 0.8465889595068011
+    f1: 0.822249321352273
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.40_seed44_20260225_121629
+  seed: 44
+  severity: 0.4
+  test_metrics:
+    accuracy: 0.8430071862907684
+    auroc: 0.8432175721160509
+    f1: 0.8098940181858637
+  val_metrics:
+    accuracy: 0.8408136192792395
+    auroc: 0.8471846657620168
+    f1: 0.8058237563811314
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.50_seed42_20260225_121634
+  seed: 42
+  severity: 0.5
+  test_metrics:
+    accuracy: 0.8424543946932007
+    auroc: 0.8464160561559794
+    f1: 0.7998758395686374
+  val_metrics:
+    accuracy: 0.8434667256245855
+    auroc: 0.8412171893819905
+    f1: 0.8045248550719605
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.50_seed43_20260225_121638
+  seed: 43
+  severity: 0.5
+  test_metrics:
+    accuracy: 0.8410171365395246
+    auroc: 0.8366827790530033
+    f1: 0.8184161193565748
+  val_metrics:
+    accuracy: 0.837055051956666
+    auroc: 0.8353452025083558
+    f1: 0.8118570566202898
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.50_seed44_20260225_121642
+  seed: 44
+  severity: 0.5
+  test_metrics:
+    accuracy: 0.8410171365395246
+    auroc: 0.8388523199347266
+    f1: 0.801466523716879
+  val_metrics:
+    accuracy: 0.8394870661065664
+    auroc: 0.8397401908801696
+    f1: 0.8002794713578331
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.60_seed42_20260225_121647
+  seed: 42
+  severity: 0.6000000000000001
+  test_metrics:
+    accuracy: 0.8443338861249309
+    auroc: 0.833005371952691
+    f1: 0.8025761844613477
+  val_metrics:
+    accuracy: 0.8450143709927039
+    auroc: 0.8204491925223774
+    f1: 0.8044234661039132
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.60_seed43_20260225_121653
+  seed: 43
+  severity: 0.6000000000000001
+  test_metrics:
+    accuracy: 0.8342730790491985
+    auroc: 0.8323839458917563
+    f1: 0.8176997635269978
+  val_metrics:
+    accuracy: 0.835286314393102
+    auroc: 0.8293719014449451
+    f1: 0.817041598038315
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.60_seed44_20260225_121659
+  seed: 44
+  severity: 0.6000000000000001
+  test_metrics:
+    accuracy: 0.840685461580984
+    auroc: 0.8298662457745587
+    f1: 0.800139871056118
+  val_metrics:
+    accuracy: 0.837939420738448
+    auroc: 0.837445265626743
+    f1: 0.7965067369075248
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.70_seed42_20260225_121704
+  seed: 42
+  severity: 0.7000000000000001
+  test_metrics:
+    accuracy: 0.8380320619126589
+    auroc: 0.8263117469605685
+    f1: 0.7993695704130079
+  val_metrics:
+    accuracy: 0.83882378952023
+    auroc: 0.8209351123210764
+    f1: 0.8032847786860395
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.70_seed43_20260225_121710
+  seed: 43
+  severity: 0.7000000000000001
+  test_metrics:
+    accuracy: 0.8337202874516307
+    auroc: 0.8251797991559444
+    f1: 0.8195076114141808
+  val_metrics:
+    accuracy: 0.842803449038249
+    auroc: 0.8245199401857969
+    f1: 0.8273981388360883
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.70_seed44_20260225_121716
+  seed: 44
+  severity: 0.7000000000000001
+  test_metrics:
+    accuracy: 0.8393587617468214
+    auroc: 0.8216269773670459
+    f1: 0.7964593205814587
+  val_metrics:
+    accuracy: 0.839708158302012
+    auroc: 0.8234136033538879
+    f1: 0.7994658868032625
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.80_seed42_20260225_121721
+  seed: 42
+  severity: 0.8
+  test_metrics:
+    accuracy: 0.8389165284687673
+    auroc: 0.8123150748844662
+    f1: 0.7909257880809727
+  val_metrics:
+    accuracy: 0.8416979880610215
+    auroc: 0.8101532703655642
+    f1: 0.796234062889892
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.80_seed43_20260225_121727
+  seed: 43
+  severity: 0.8
+  test_metrics:
+    accuracy: 0.8332780541735766
+    auroc: 0.8161176410153027
+    f1: 0.8196527149889258
+  val_metrics:
+    accuracy: 0.8359495909794384
+    auroc: 0.8163715611422311
+    f1: 0.8227450042689151
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.80_seed44_20260225_121734
+  seed: 44
+  severity: 0.8
+  test_metrics:
+    accuracy: 0.8381426202321725
+    auroc: 0.8091735214331749
+    f1: 0.7889974358244956
+  val_metrics:
+    accuracy: 0.8374972363475569
+    auroc: 0.8148707343902015
+    f1: 0.7895764474359678
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.90_seed42_20260225_121740
+  seed: 42
+  severity: 0.9
+  test_metrics:
+    accuracy: 0.8338308457711443
+    auroc: 0.7937782986951156
+    f1: 0.793055809583652
+  val_metrics:
+    accuracy: 0.8377183285430024
+    auroc: 0.7960317667641448
+    f1: 0.7978356924497689
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.90_seed43_20260225_121746
+  seed: 43
+  severity: 0.9
+  test_metrics:
+    accuracy: 0.8385848535102266
+    auroc: 0.805355553150839
+    f1: 0.8102755756722397
+  val_metrics:
+    accuracy: 0.8381605129338935
+    auroc: 0.8026517841887734
+    f1: 0.8106390516285933
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_0.90_seed44_20260225_121752
+  seed: 44
+  severity: 0.9
+  test_metrics:
+    accuracy: 0.8392482034273079
+    auroc: 0.792686776021648
+    f1: 0.7881179867931039
+  val_metrics:
+    accuracy: 0.8357284987839929
+    auroc: 0.7921666480747481
+    f1: 0.7840795281821645
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_1.00_seed42_20260225_121757
+  seed: 42
+  severity: 1.0
+  test_metrics:
+    accuracy: 0.8352681039248203
+    auroc: 0.7972214077372288
+    f1: 0.7904143258338236
+  val_metrics:
+    accuracy: 0.8355074065885474
+    auroc: 0.7822279731655071
+    f1: 0.7882655625559771
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_1.00_seed43_20260225_121802
+  seed: 43
+  severity: 1.0
+  test_metrics:
+    accuracy: 0.8375898286346047
+    auroc: 0.7991311421264643
+    f1: 0.8029497889798068
+  val_metrics:
+    accuracy: 0.841919080256467
+    auroc: 0.8003663902354302
+    f1: 0.8089997725378637
+- run_dir: outputs/week6/adult_noise_xgb/adult_xgboost_additive_noise_1.00_seed44_20260225_121811
+  seed: 44
+  severity: 1.0
+  test_metrics:
+    accuracy: 0.8391376451077943
+    auroc: 0.7867899586092554
+    f1: 0.7834446872119274
+  val_metrics:
+    accuracy: 0.835286314393102
+    auroc: 0.7924905357720282
+    f1: 0.7785031759096191
+seeds:
+- 42
+- 43
+- 44
+severities:
+- 0.0
+- 0.1
+- 0.2
+- 0.30000000000000004
+- 0.4
+- 0.5
+- 0.6000000000000001
+- 0.7000000000000001
+- 0.8
+- 0.9
+- 1.0
+stability_aggregates:
+- n_seeds: 3
+  severity: 0.0
+  test_accuracy_mean: 0.8453289110005527
+  test_accuracy_std: 0.002016489997465204
+  test_auroc_mean: 0.8643387175253654
+  test_auroc_std: 0.004850377781670221
+  test_f1_mean: 0.8341135089666342
+  test_f1_std: 0.0023651380316227206
+  val_accuracy_mean: 0.8512049524651779
+  val_accuracy_std: 0.003917763684870482
+  val_auroc_mean: 0.8656569725107892
+  val_auroc_std: 0.004199566148428578
+  val_f1_mean: 0.8407055130539368
+  val_f1_std: 0.0035378546814995625
+- n_seeds: 3
+  severity: 0.1
+  test_accuracy_mean: 0.8473189607517965
+  test_accuracy_std: 0.0010410500749457052
+  test_auroc_mean: 0.8590503660063131
+  test_auroc_std: 0.0037510516936897953
+  test_f1_mean: 0.8275313950330973
+  test_f1_std: 0.007465130479478365
+  val_accuracy_mean: 0.8523841108408874
+  val_accuracy_std: 0.005889339825781432
+  val_auroc_mean: 0.8604115215296771
+  val_auroc_std: 0.002621035843412449
+  val_f1_mean: 0.8336607472088216
+  val_f1_std: 0.006138922479673227
+- n_seeds: 3
+  severity: 0.2
+  test_accuracy_mean: 0.8444444444444444
+  test_accuracy_std: 0.003837292241384254
+  test_auroc_mean: 0.8531230679273424
+  test_auroc_std: 0.0015936906816616202
+  test_f1_mean: 0.8250431549743551
+  test_f1_std: 0.006825498049016418
+  val_accuracy_mean: 0.8441300022109219
+  val_accuracy_std: 0.005734206990618909
+  val_auroc_mean: 0.8526467478968773
+  val_auroc_std: 0.003298686003130369
+  val_f1_mean: 0.8249512171731629
+  val_f1_std: 0.0009724347906849383
+- n_seeds: 3
+  severity: 0.30000000000000004
+  test_accuracy_mean: 0.8438916528468767
+  test_accuracy_std: 0.005289111238061962
+  test_auroc_mean: 0.8533547180511863
+  test_auroc_std: 0.006918044803742633
+  test_f1_mean: 0.8233952023342596
+  test_f1_std: 0.004775811802933835
+  val_accuracy_mean: 0.8478148721350136
+  val_accuracy_std: 0.004997314027021793
+  val_auroc_mean: 0.8541256291246407
+  val_auroc_std: 0.004223912762580644
+  val_f1_mean: 0.82725085646353
+  val_f1_std: 0.006850025729224161
+- n_seeds: 3
+  severity: 0.4
+  test_accuracy_mean: 0.8445918555371291
+  test_accuracy_std: 0.003737605275403176
+  test_auroc_mean: 0.8498477496588724
+  test_auroc_std: 0.00523177650938976
+  test_f1_mean: 0.8199065456825684
+  test_f1_std: 0.0072193350355039855
+  val_accuracy_mean: 0.8434667256245856
+  val_accuracy_std: 0.003294199519290585
+  val_auroc_mean: 0.8483578982000669
+  val_auroc_std: 0.002094595380192757
+  val_f1_mean: 0.8179527843693771
+  val_f1_std: 0.008697154042825962
+- n_seeds: 3
+  severity: 0.5
+  test_accuracy_mean: 0.84149622259075
+  test_accuracy_std: 0.0006775299911866963
+  test_auroc_mean: 0.840650385047903
+  test_auroc_std: 0.004172045813446639
+  test_f1_mean: 0.8065861608806971
+  test_f1_std: 0.008390212836816083
+  val_accuracy_mean: 0.8400029478959393
+  val_accuracy_std: 0.0026428507741235274
+  val_auroc_mean: 0.8387675275901719
+  val_auroc_std: 0.0024939410401767104
+  val_f1_mean: 0.8055537943500277
+  val_f1_std: 0.004782200132144644
+- n_seeds: 3
+  severity: 0.6000000000000001
+  test_accuracy_mean: 0.8397641422517044
+  test_accuracy_std: 0.004158652164155675
+  test_auroc_mean: 0.8317518545396686
+  test_auroc_std: 0.0013572479259140193
+  test_f1_mean: 0.8068052730148212
+  test_f1_std: 0.007767511329980187
+  val_accuracy_mean: 0.8394133687080846
+  val_accuracy_std: 0.0041059439242933215
+  val_auroc_mean: 0.8290887865313552
+  val_auroc_std: 0.0069415051577669815
+  val_f1_mean: 0.8059906003499177
+  val_f1_std: 0.008456242771820876
+- n_seeds: 3
+  severity: 0.7000000000000001
+  test_accuracy_mean: 0.837037037037037
+  test_accuracy_std: 0.002407024992490567
+  test_auroc_mean: 0.8243728411611864
+  test_auroc_std: 0.001995854443603292
+  test_f1_mean: 0.8051121674695492
+  test_f1_std: 0.010248219139368629
+  val_accuracy_mean: 0.8404451322868303
+  val_accuracy_std: 0.0017062181299713046
+  val_auroc_mean: 0.8229562186202536
+  val_auroc_std: 0.00149881026169432
+  val_f1_mean: 0.8100496014417967
+  val_f1_std: 0.0123659423712586
+- n_seeds: 3
+  severity: 0.8
+  test_accuracy_mean: 0.8367790676248387
+  test_accuracy_std: 0.0024956702345070134
+  test_auroc_mean: 0.8125354124443146
+  test_auroc_std: 0.0028392030187986105
+  test_f1_mean: 0.7998586462981313
+  test_f1_std: 0.014018642399989656
+  val_accuracy_mean: 0.838381605129339
+  val_accuracy_std: 0.002428661957886971
+  val_auroc_mean: 0.813798521965999
+  val_auroc_std: 0.0026494042925100485
+  val_f1_mean: 0.8028518381982582
+  val_f1_std: 0.014326769887617854
+- n_seeds: 3
+  severity: 0.9
+  test_accuracy_mean: 0.8372213009028929
+  test_accuracy_std: 0.002412660741232023
+  test_auroc_mean: 0.7972735426225341
+  test_auroc_std: 0.00573219132452241
+  test_f1_mean: 0.7971497906829986
+  test_f1_std: 0.00949772594416006
+  val_accuracy_mean: 0.8372024467536296
+  val_accuracy_std: 0.0010577566581478092
+  val_auroc_mean: 0.7969500663425554
+  val_auroc_std: 0.00432950924233459
+  val_f1_mean: 0.7975180907535089
+  val_f1_std: 0.010845205532198705
+- n_seeds: 3
+  severity: 1.0
+  test_accuracy_mean: 0.8373318592224065
+  test_accuracy_std: 0.0015902302568926727
+  test_auroc_mean: 0.7943808361576495
+  test_auroc_std: 0.005423887770802577
+  test_f1_mean: 0.7922696006751858
+  test_f1_std: 0.008070265683217519
+  val_accuracy_mean: 0.8375709337460387
+  val_accuracy_std: 0.0030759284773689086
+  val_auroc_mean: 0.7916949663909886
+  val_auroc_std: 0.007426315435919113
+  val_f1_mean: 0.7919228370011533
+  val_f1_std: 0.012715930789157576

@@ -11,6 +11,8 @@
 
 Progress is on track with the Winter Term Revised Plan. Weeks 1–4 deliverables are complete: baselines, Methods drafting, corruption modules, and pilot experiments with a confirmed experimental design. Week 5 focused on **stability and variance analysis** and **multi-model comparison**, yielding run-to-run variance estimates and RF vs XGBoost comparison under additive noise.
 
+> **Audit note (post-run):** A later code audit identified preprocessing leakage in the original pipeline (scaling/vectorization fitted before split in some paths). The code has now been fixed; Week 5 figures should be treated as provisional until regenerated with the corrected pipeline.
+
 ---
 
 ## 2. Completed Work (Weeks 1–4)
@@ -90,7 +92,7 @@ All Week 5 figures are embedded below; the full numerical results are in §3.1 (
 | 0.50 | 0.8415 ± 0.0007 | 0.8066 ± 0.0084 | 0.8407 ± 0.0042 |
 | 0.75 | 0.8392 ± 0.0032 | 0.8080 ± 0.0065 | 0.8206 ± 0.0044 |
 
-**Interpretation:** Both models show monotonic degradation as noise severity increases. RF has slightly higher clean (severity 0) test accuracy and AUROC than XGB; variance across seeds is small (std &lt; 0.01 for most points). The plots above show the same data with error bars.
+**Interpretation:** Both models show an overall downward degradation trend as noise severity increases. RF is monotonic in the reported test metrics; XGB has a tiny local non-monotonic bump in test F1 at 0.75 vs 0.50 (+0.14 pp), which is well within the reported standard deviations and therefore not practically meaningful. RF has slightly higher clean (severity 0) test accuracy and AUROC than XGB; variance across seeds is small (std &lt; 0.01 for most points). The plots above show the same data with error bars.
 
 ---
 
@@ -103,7 +105,7 @@ All Week 5 figures are embedded below; the full numerical results are in §3.1 (
 - **Test F1:** Balance of precision and recall (especially relevant because Adult has class imbalance).  
 - **Test AUROC:** Ability to rank positive vs negative; 0.5 = random, 1.0 = perfect.  
 
-**What “degradation” means.** As severity goes from 0 → 1, we are adding more noise to the training features. Both models **get worse** on the test set: accuracy drops (e.g. RF from ~85.6% to ~83.8%), F1 drops more (e.g. RF from ~83% to ~77.5%), and AUROC drops (e.g. RF from ~0.87 to ~0.82). That is the expected **robustness** signal: noisier training data leads to worse generalization. The curves are **monotonic** (no big jumps or reversals), which suggests the corruption is applied and measured consistently.
+**What “degradation” means.** As severity goes from 0 → 1, we are adding more noise to the training features. Both models **get worse** on the test set: accuracy drops (e.g. RF from ~85.6% to ~83.8%), F1 drops more (e.g. RF from ~83% to ~77.5%), and AUROC drops (e.g. RF from ~0.87 to ~0.82). That is the expected **robustness** signal: noisier training data leads to worse generalization. The curves are near-monotonic with only very small local fluctuations (e.g., XGB F1 at 0.75 vs 0.50) that are within seed-level variance.
 
 **What the error bars (mean ± std) mean.** Each point is the **mean** over 3 runs (one per seed); the **std** is the standard deviation across those 3 runs. The error bars are small (often &lt; 0.01), so the results are **stable**: changing the random seed does not change the story. That gives confidence that the full experiments (Weeks 6–8) will not be dominated by run-to-run noise.
 

@@ -1,0 +1,14 @@
+config_file: configs/adult_imbalance.yaml
+model: random_forest
+results: []
+seeds:
+- 42
+- 43
+- 44
+severities:
+- 0.02
+- 0.05
+- 0.1
+- 0.15
+- 0.199
+stability_aggregates: []

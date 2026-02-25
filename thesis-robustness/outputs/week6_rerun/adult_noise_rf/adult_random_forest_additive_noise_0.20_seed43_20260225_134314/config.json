@@ -1,0 +1,13 @@
+{
+  "dataset": "adult",
+  "model": "random_forest",
+  "seed": 43,
+  "test_size": 0.2,
+  "val_size": 0.1,
+  "corruption": {
+    "type": "additive_noise",
+    "severity": 0.2,
+    "noise_type": "gaussian"
+  },
+  "output_dir": "outputs/week6_rerun/adult_noise_rf"
+}

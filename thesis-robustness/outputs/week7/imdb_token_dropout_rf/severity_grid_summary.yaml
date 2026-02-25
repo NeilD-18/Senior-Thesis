@@ -1,0 +1,297 @@
+config_file: configs/imdb_token_dropout.yaml
+model: random_forest
+results:
+- run_dir: outputs/week7/imdb_token_dropout_rf/imdb_random_forest_token_dropout_0.00_seed42_20260225_125232
+  seed: 42
+  severity: 0.0
+  test_metrics:
+    accuracy: 0.8086
+    auroc: 0.8992342400000001
+    f1: 0.8074821566939139
+  val_metrics:
+    accuracy: 0.814
+    auroc: 0.90529472
+    f1: 0.8126140938380261
+- run_dir: outputs/week7/imdb_token_dropout_rf/imdb_random_forest_token_dropout_0.00_seed43_20260225_125242
+  seed: 43
+  severity: 0.0
+  test_metrics:
+    accuracy: 0.8178
+    auroc: 0.90239144
+    f1: 0.8171807473145336
+  val_metrics:
+    accuracy: 0.806
+    auroc: 0.89653376
+    f1: 0.805130445278138
+- run_dir: outputs/week7/imdb_token_dropout_rf/imdb_random_forest_token_dropout_0.00_seed44_20260225_125250
+  seed: 44
+  severity: 0.0
+  test_metrics:
+    accuracy: 0.817
+    auroc: 0.9007861599999999
+    f1: 0.8161040515834768
+  val_metrics:
+    accuracy: 0.812
+    auroc: 0.9039747200000001
+    f1: 0.8112651116411036
+- run_dir: outputs/week7/imdb_token_dropout_rf/imdb_random_forest_token_dropout_0.10_seed42_20260225_125259
+  seed: 42
+  severity: 0.1
+  test_metrics:
+    accuracy: 0.8192
+    auroc: 0.9013695199999999
+    f1: 0.8185897358714717
+  val_metrics:
+    accuracy: 0.8184
+    auroc: 0.90668416
+    f1: 0.8176717371594318
+- run_dir: outputs/week7/imdb_token_dropout_rf/imdb_random_forest_token_dropout_0.10_seed43_20260225_125308
+  seed: 43
+  severity: 0.1
+  test_metrics:
+    accuracy: 0.8184
+    auroc: 0.90110464
+    f1: 0.8180667273538358
+  val_metrics:
+    accuracy: 0.81
+    auroc: 0.8961619200000001
+    f1: 0.8094768692083977
+- run_dir: outputs/week7/imdb_token_dropout_rf/imdb_random_forest_token_dropout_0.10_seed44_20260225_125316
+  seed: 44
+  severity: 0.1
+  test_metrics:
+    accuracy: 0.8236
+    auroc: 0.90225032
+    f1: 0.8231719629804689
+  val_metrics:
+    accuracy: 0.8076
+    auroc: 0.9024051200000001
+    f1: 0.8071776728261306
+- run_dir: outputs/week7/imdb_token_dropout_rf/imdb_random_forest_token_dropout_0.20_seed42_20260225_125325
+  seed: 42
+  severity: 0.2
+  test_metrics:
+    accuracy: 0.8204
+    auroc: 0.90096072
+    f1: 0.8201347779381566
+  val_metrics:
+    accuracy: 0.8232
+    auroc: 0.9049583999999999
+    f1: 0.8228935065867586
+- run_dir: outputs/week7/imdb_token_dropout_rf/imdb_random_forest_token_dropout_0.20_seed43_20260225_125334
+  seed: 43
+  severity: 0.2
+  test_metrics:
+    accuracy: 0.8196
+    auroc: 0.90243392
+    f1: 0.8194741807249982
+  val_metrics:
+    accuracy: 0.8088
+    auroc: 0.89882496
+    f1: 0.8085407181821911
+- run_dir: outputs/week7/imdb_token_dropout_rf/imdb_random_forest_token_dropout_0.20_seed44_20260225_125342
+  seed: 44
+  severity: 0.2
+  test_metrics:
+    accuracy: 0.8184
+    auroc: 0.9033659199999999
+    f1: 0.8181848472208072
+  val_metrics:
+    accuracy: 0.8096
+    auroc: 0.9007388799999998
+    f1: 0.8095238095238095
+- run_dir: outputs/week7/imdb_token_dropout_rf/imdb_random_forest_token_dropout_0.30_seed42_20260225_125351
+  seed: 42
+  severity: 0.30000000000000004
+  test_metrics:
+    accuracy: 0.8144
+    auroc: 0.9004524799999999
+    f1: 0.8142543754303374
+  val_metrics:
+    accuracy: 0.8276
+    auroc: 0.9030486399999998
+    f1: 0.8274904495350728
+- run_dir: outputs/week7/imdb_token_dropout_rf/imdb_random_forest_token_dropout_0.30_seed43_20260225_125359
+  seed: 43
+  severity: 0.30000000000000004
+  test_metrics:
+    accuracy: 0.8244
+    auroc: 0.90431088
+    f1: 0.8243876087896762
+  val_metrics:
+    accuracy: 0.814
+    auroc: 0.8978963200000001
+    f1: 0.8139397164681357
+- run_dir: outputs/week7/imdb_token_dropout_rf/imdb_random_forest_token_dropout_0.30_seed44_20260225_125408
+  seed: 44
+  severity: 0.30000000000000004
+  test_metrics:
+    accuracy: 0.8242
+    auroc: 0.90123384
+    f1: 0.8241417487128436
+  val_metrics:
+    accuracy: 0.8092
+    auroc: 0.8994185600000001
+    f1: 0.8091975271999525
+- run_dir: outputs/week7/imdb_token_dropout_rf/imdb_random_forest_token_dropout_0.40_seed42_20260225_125416
+  seed: 42
+  severity: 0.4
+  test_metrics:
+    accuracy: 0.8184
+    auroc: 0.8989049599999999
+    f1: 0.8183832622014444
+  val_metrics:
+    accuracy: 0.8224
+    auroc: 0.90296288
+    f1: 0.8223907927386955
+- run_dir: outputs/week7/imdb_token_dropout_rf/imdb_random_forest_token_dropout_0.40_seed43_20260225_125424
+  seed: 43
+  severity: 0.4
+  test_metrics:
+    accuracy: 0.8242
+    auroc: 0.90238024
+    f1: 0.8241999929679998
+  val_metrics:
+    accuracy: 0.8148
+    auroc: 0.8988854399999999
+    f1: 0.8147869313658772
+- run_dir: outputs/week7/imdb_token_dropout_rf/imdb_random_forest_token_dropout_0.40_seed44_20260225_125433
+  seed: 44
+  severity: 0.4
+  test_metrics:
+    accuracy: 0.8192
+    auroc: 0.9015410399999999
+    f1: 0.8191995371508151
+  val_metrics:
+    accuracy: 0.8124
+    auroc: 0.89910688
+    f1: 0.8123812381238124
+- run_dir: outputs/week7/imdb_token_dropout_rf/imdb_random_forest_token_dropout_0.50_seed42_20260225_125441
+  seed: 42
+  severity: 0.5
+  test_metrics:
+    accuracy: 0.815
+    auroc: 0.89858392
+    f1: 0.8149742370127616
+  val_metrics:
+    accuracy: 0.8248
+    auroc: 0.9062256
+    f1: 0.8247838520798078
+- run_dir: outputs/week7/imdb_token_dropout_rf/imdb_random_forest_token_dropout_0.50_seed43_20260225_125449
+  seed: 43
+  severity: 0.5
+  test_metrics:
+    accuracy: 0.8204
+    auroc: 0.9016212800000001
+    f1: 0.8202964907786885
+  val_metrics:
+    accuracy: 0.8172
+    auroc: 0.89787616
+    f1: 0.8171817181718172
+- run_dir: outputs/week7/imdb_token_dropout_rf/imdb_random_forest_token_dropout_0.50_seed44_20260225_125459
+  seed: 44
+  severity: 0.5
+  test_metrics:
+    accuracy: 0.8152
+    auroc: 0.8998621599999999
+    f1: 0.8151169061422966
+  val_metrics:
+    accuracy: 0.8152
+    auroc: 0.9011094400000002
+    f1: 0.8150788100489537
+seeds:
+- 42
+- 43
+- 44
+severities:
+- 0.0
+- 0.1
+- 0.2
+- 0.30000000000000004
+- 0.4
+- 0.5
+stability_aggregates:
+- n_seeds: 3
+  severity: 0.0
+  test_accuracy_mean: 0.8144666666666666
+  test_accuracy_std: 0.004161196409153918
+  test_auroc_mean: 0.9008039466666666
+  test_auroc_std: 0.0012889828636392057
+  test_f1_mean: 0.813588985197308
+  test_f1_std: 0.0043404941501876595
+  val_accuracy_mean: 0.8106666666666668
+  val_accuracy_std: 0.0033993463423951566
+  val_auroc_mean: 0.9019344
+  val_auroc_std: 0.0038566638698232848
+  val_f1_mean: 0.809669883585756
+  val_f1_std: 0.0032567686800881687
+- n_seeds: 3
+  severity: 0.1
+  test_accuracy_mean: 0.8203999999999999
+  test_accuracy_std: 0.0022861904265976205
+  test_auroc_mean: 0.9015748266666668
+  test_auroc_std: 0.0004897337958070533
+  test_f1_mean: 0.8199428087352588
+  test_f1_std: 0.0022933181683460085
+  val_accuracy_mean: 0.8119999999999999
+  val_accuracy_std: 0.0046303347611160945
+  val_auroc_mean: 0.9017504000000001
+  val_auroc_std: 0.004320561488448736
+  val_f1_mean: 0.8114420930646533
+  val_f1_std: 0.004503918676128087
+- n_seeds: 3
+  severity: 0.2
+  test_accuracy_mean: 0.8194666666666667
+  test_accuracy_std: 0.0008219218670625297
+  test_auroc_mean: 0.90225352
+  test_auroc_std: 0.0009901699786736497
+  test_f1_mean: 0.8192646019613207
+  test_f1_std: 0.0008097324225751518
+  val_accuracy_mean: 0.8138666666666667
+  val_accuracy_std: 0.006607739569794094
+  val_auroc_mean: 0.9015074133333333
+  val_auroc_std: 0.0025622586613810437
+  val_f1_mean: 0.8136526780975863
+  val_f1_std: 0.006546566556662302
+- n_seeds: 3
+  severity: 0.30000000000000004
+  test_accuracy_mean: 0.8210000000000001
+  test_accuracy_std: 0.004667618950457155
+  test_auroc_mean: 0.9019990666666665
+  test_auroc_std: 0.0016655312522903178
+  test_f1_mean: 0.8209279109776192
+  test_f1_std: 0.004719969584645584
+  val_accuracy_mean: 0.8169333333333334
+  val_accuracy_std: 0.007792874237974642
+  val_auroc_mean: 0.9001211733333333
+  val_auroc_std: 0.0021613035368703835
+  val_f1_mean: 0.816875897734387
+  val_f1_std: 0.007751284719791048
+- n_seeds: 3
+  severity: 0.4
+  test_accuracy_mean: 0.8206000000000001
+  test_accuracy_std: 0.0025664502073226964
+  test_auroc_mean: 0.9009420799999998
+  test_auroc_std: 0.001480643459400932
+  test_f1_mean: 0.8205942641067532
+  test_f1_std: 0.002571320888034431
+  val_accuracy_mean: 0.8165333333333334
+  val_accuracy_std: 0.004262497963505552
+  val_auroc_mean: 0.9003184000000001
+  val_auroc_std: 0.0018721137378553518
+  val_f1_mean: 0.8165196540761284
+  val_f1_std: 0.004266110007180418
+- n_seeds: 3
+  severity: 0.5
+  test_accuracy_mean: 0.8168666666666667
+  test_accuracy_std: 0.0024997777679003704
+  test_auroc_mean: 0.9000224533333334
+  test_auroc_std: 0.0012451664967474598
+  test_f1_mean: 0.8167958779779155
+  test_f1_std: 0.0024759922059425002
+  val_accuracy_mean: 0.8190666666666666
+  val_accuracy_std: 0.0041354833118055255
+  val_auroc_mean: 0.9017370666666666
+  val_auroc_std: 0.003437414096180727
+  val_f1_mean: 0.8190147934335261
+  val_f1_std: 0.004168699548738459
