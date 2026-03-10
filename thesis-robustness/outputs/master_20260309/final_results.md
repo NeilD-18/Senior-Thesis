@@ -11,7 +11,7 @@ March 2026
 
 ## Overview
 
-This document presents the complete experimental results for my senior thesis on ML model robustness. The experiments span three datasets, three model families, and multiple corruption types, totaling **452 individual experiment runs** across three seeds for stability analysis.
+This document presents the complete experimental results for my senior thesis on ML model robustness. The experiments span three datasets, three model families, and multiple corruption types, with a planned matrix of **450 runs**  across three seeds for stability analysis.
 
 **Core research questions addressed:**
 
@@ -24,34 +24,35 @@ This document presents the complete experimental results for my senior thesis on
 
 ---
 
-## 1. At a Glance: Robustness Heatmap
+## 1. At a Glance: How Much Does Each Model Degrade?
 
-![Figure 1: Robustness overview heatmap](figures/fig01_robustness_heatmap.png)
+![Figure 1: Robustness overview -- % degradation from clean baseline](figures/fig01_robustness_heatmap.png)
 
-This heatmap summarizes the entire thesis in a single figure. Each cell shows how much a model's performance changed between clean data and the worst corruption severity tested. Green cells indicate robust models (small degradation); red cells indicate fragile models (large degradation). Classification cells report AUROC change in percentage points; regression cells report absolute RMSE increase.
+This figure shows percent degradation in each model's primary metric (AUROC for classification, RMSE for regression) from a clean/natural baseline to a fixed comparison point: severity 0.5 where available, severity 0.02 for imbalance, and Amazon evaluation for domain shift.
 
 **Key patterns visible at a glance:**
-- SVM-RBF is consistently red across all Adult corruptions -- it is the least robust tabular model.
-- IMDB token dropout is uniformly green -- synthetic text corruption has minimal impact on any model.
-- IMDB domain shift shows moderate, roughly uniform penalties -- all models struggle with real distribution change.
-- Airbnb missingness shows a stark gradient: RF stays relatively green while XGBoost turns deep red.
+- **IMDB token dropout has near-zero impact** on all models. This is expected: TF-IDF vectors are so sparse and redundant that zeroing out half the tokens barely affects the decision boundary. In fact there are some papers showing that token dropout helps control overfitting. This is why the domain shift experiment matters -- it *does* cause real degradation.
+- **SVM-RBF is the most fragile tabular model**, showing the largest degradations across Adult corruptions overall.
+- **IMDB domain shift causes moderate, roughly uniform penalties** (~7-8%) across all models -- real distribution change is harder to handle than synthetic corruption.
+- **Airbnb degradation is mostly moderate at severity 0.5** (about 10-18% for RF/XGBoost and missingness-linear), while linear under additive noise stays much lower (~2%).
+
 
 ---
 
 ## 2. Experiment Coverage
 
-| Experiment Block | Dataset | Corruption | Models | Severity Points | Seeds | Runs |
-|---|---|---|---|---:|---:|---:|
-| Tabular classification | Adult Income | Additive noise | RF, XGB, SVM-RBF | 11 | 3 | 99 |
-| Tabular classification | Adult Income | Missingness | RF, XGB, SVM-RBF | 6 | 3 | 54 |
-| Tabular classification | Adult Income | Class imbalance | RF, XGB, SVM-RBF | 5 | 3 | 45 |
-| Text classification | IMDB | Token dropout | Linear SVM, RF, XGB | 6 | 3 | 54 |
-| Text domain shift | IMDB -> Amazon | Cross-domain eval | Linear SVM, RF, XGB | -- | 3 | 9 |
-| Regression | Airbnb | Additive noise | RF, Linear, XGB | 11 | 3 | 99 |
-| Regression | Airbnb | Missingness | RF, Linear, XGB | 10 | 3 | 90 |
-| | | | | | **Total** | **452** |
+| Experiment Block | Dataset | Corruption | Models | Severity Points | Seeds | Planned Runs | Executed Run Artifacts |
+|---|---|---|---|---:|---:|---:|---:|
+| Tabular classification | Adult Income | Additive noise | RF, XGB, SVM-RBF | 11 | 3 | 99 | 101 |
+| Tabular classification | Adult Income | Missingness | RF, XGB, SVM-RBF | 6 | 3 | 54 | 54 |
+| Tabular classification | Adult Income | Class imbalance | RF, XGB, SVM-RBF | 5 | 3 | 45 | 45 |
+| Text classification | IMDB | Token dropout | Linear SVM, RF, XGB | 6 | 3 | 54 | 54 |
+| Text domain shift | IMDB -> Amazon | Cross-domain eval | Linear SVM, RF, XGB | -- | 3 | 9 | 9 |
+| Regression | Airbnb | Additive noise | RF, Linear, XGB | 11 | 3 | 99 | 99 |
+| Regression | Airbnb | Missingness | RF, Linear, XGB | 10 | 3 | 90 | 90 |
+| | | | | | **Total** | **450** | **452** |
 
-All experiment families are complete with no missing runs.
+All experiment families are complete with no missing runs. The two extra artifacts come from retained reruns in `adult_noise_svm`.
 
 ---
 
@@ -80,8 +81,8 @@ Gaussian noise is added to numeric training features, scaled by each feature's s
 | Severity | Random Forest | XGBoost | SVM-RBF |
 |---:|---:|---:|---:|
 | 0.0 | 0.874 +/- 0.004 | 0.875 +/- 0.003 | 0.824 +/- 0.006 |
-| 0.5 | 0.855 +/- 0.005 | 0.841 +/- 0.004 | 0.815 +/- 0.006 |
-| 1.0 | 0.825 +/- 0.004 | 0.808 +/- 0.005 | 0.682 +/- 0.033 |
+| 0.5 | 0.855 +/- 0.005 | 0.851 +/- 0.005 | 0.815 +/- 0.006 |
+| 1.0 | 0.825 +/- 0.004 | 0.808 +/- 0.007 | 0.682 +/- 0.033 |
 
 **What this shows:** All three models degrade under noise, but the pattern is strikingly different. Random Forest and XGBoost lose 5-7 percentage points of AUROC across the full severity range -- a gradual, predictable decline. SVM-RBF, however, collapses by **14.2 pp**, with its AUROC falling below 0.70 and its variance ballooning (std = 0.033 at severity 1.0 vs 0.006 at clean). This indicates that the RBF kernel's decision surface is especially fragile under feature-level perturbations. The tree ensembles' axis-aligned splits provide natural resilience to additive noise.
 
@@ -108,18 +109,20 @@ The minority class (income > $50K) is subsampled in training data. Severity repr
 | Severity (minority ratio) | Random Forest | XGBoost | SVM-RBF |
 |---:|---:|---:|---:|
 | 0.02 (extreme) | 0.862 +/- 0.005 | 0.834 +/- 0.003 | 0.726 +/- 0.013 |
-| 0.10 | 0.872 +/- 0.003 | 0.865 +/- 0.000 | 0.768 +/- 0.002 |
+| 0.10 | 0.872 +/- 0.003 | 0.865 +/- 0.000 | 0.767 +/- 0.003 |
 | 0.199 (near-natural) | 0.873 +/- 0.004 | 0.875 +/- 0.003 | 0.824 +/- 0.006 |
 
 **What this shows:** At extreme imbalance (severity 0.02), all models predict mostly the majority class, but RF maintains a strong AUROC (0.862) because its ensemble structure preserves some ranking ability even with very few minority examples. SVM-RBF's AUROC plummets to 0.726, revealing that its probability calibration fails under severe imbalance. XGBoost recovers fastest as imbalance decreases, reaching near-full performance by severity 0.10.
 
 ### 3.5 Adult Summary
 
-| Corruption | RF AUROC delta | XGB AUROC delta | SVM-RBF AUROC delta |
+| Corruption | RF AUROC loss | XGB AUROC loss | SVM-RBF AUROC loss |
 |---|---:|---:|---:|
-| Noise (0 -> 1.0) | -4.9 pp | -6.8 pp | **-14.2 pp** |
-| Missingness (0 -> 0.5) | -0.8 pp | -1.8 pp | **-6.3 pp** |
-| Imbalance (0.02 -> 0.199) | +1.1 pp | +4.0 pp | **+9.7 pp** |
+| Noise (clean vs severity 1.0) | 4.9 pp | 6.8 pp | **14.2 pp** |
+| Missingness (clean vs severity 0.5) | 0.8 pp | 1.8 pp | **6.3 pp** |
+| Imbalance (natural ratio vs severity 0.02) | 1.1 pp | 4.0 pp | **9.7 pp** |
+
+All values = how many percentage points of AUROC the model lost at worst corruption compared to clean/natural conditions. Larger = worse.
 
 **Bottom line:** Random Forest is the most robust tabular model overall. SVM-RBF is the most sensitive across all three corruption types.
 
@@ -141,7 +144,7 @@ Random tokens are zeroed out in the TF-IDF training matrix. Severity ranges from
 | 0.3 | 0.943 +/- 0.002 | 0.899 +/- 0.002 | 0.919 +/- 0.002 |
 | 0.5 | 0.941 +/- 0.004 | 0.898 +/- 0.001 | 0.912 +/- 0.001 |
 
-**What this shows:** Synthetic token dropout has remarkably little impact on any of the three models. Linear SVM is essentially flat across the entire severity range. XGBoost shows the largest drift (~1.1 pp AUROC), but even that is mild. This suggests that TF-IDF representations on IMDB are sufficiently redundant that removing individual tokens from training does not meaningfully degrade the learned decision boundary.
+**What this shows:** Synthetic token dropout has remarkably little impact on any of the three models. Linear SVM is essentially flat across the entire severity range. XGBoost shows the largest drift (~1.1 pp AUROC), but even that is mild. This suggests that TF-IDF representations on IMDB are sufficiently redundant that removing individual tokens from training does not meaningfully degrade the learned decision boundary. (Minor fluctuations upward at low severity, e.g. Linear SVM 0.941 -> 0.943 at severity 0.3, are within the standard deviation across seeds and should not be interpreted as genuine improvement.)
 
 ### 4.2 Domain Shift (IMDB -> Amazon, Real Distribution Shift)
 
@@ -154,7 +157,7 @@ Models are trained on IMDB movie reviews and evaluated on both IMDB test (in-dom
 | Model | IMDB Accuracy | Amazon Accuracy | Drop (pp) | IMDB AUROC | Amazon AUROC | Drop (pp) |
 |---|---:|---:|---:|---:|---:|---:|
 | Linear SVM | 0.862 | 0.786 | **7.6** | 0.939 | 0.871 | **6.8** |
-| XGBoost | 0.850 | 0.756 | **9.4** | 0.929 | 0.868 | **6.1** |
+| XGBoost | 0.850 | 0.755 | **9.4** | 0.929 | 0.868 | **6.1** |
 | Random Forest | 0.817 | 0.664 | **15.3** | 0.905 | 0.833 | **7.2** |
 
 **What this shows:** Real domain shift causes substantially larger drops than synthetic token dropout. Linear SVM transfers best (7.6 pp accuracy drop), while Random Forest suffers a dramatic 15.3 pp accuracy collapse. This is a key thesis finding: **synthetic corruption and real distribution shift produce different robustness rankings.** Random Forest is reasonably stable under random feature perturbation but brittle when the underlying data distribution changes. Linear SVM's simpler decision boundary generalizes more effectively across domains.
@@ -169,7 +172,7 @@ Models are trained on IMDB movie reviews and evaluated on both IMDB test (in-dom
 | Random Forest | 0.2 pp | 7.2 pp |
 | XGBoost | 1.1 pp | 6.1 pp |
 
-**Key insight:** The domain-shift penalties are 6-60x larger than the synthetic-corruption penalties. Synthetic corruption does not fully predict real-world robustness -- an important finding for practitioners who rely on noise injection as a proxy for deployment reliability.
+**Key insight:** The domain-shift penalties are orders of magnitude larger than the synthetic-corruption penalties. Synthetic corruption does not fully predict real-world robustness -- an important finding for practitioners who rely on noise injection as a proxy for deployment reliability.
 
 ---
 
@@ -183,7 +186,7 @@ Models are trained on IMDB movie reviews and evaluated on both IMDB test (in-dom
 
 | Severity | Random Forest | Linear (Ridge) | XGBoost |
 |---:|---:|---:|---:|
-| 0.0 | 0.408 +/- 0.001 | 0.487 +/- 0.001 | 0.394 +/- 0.003 |
+| 0.0 | 0.408 +/- 0.001 | 0.486 +/- 0.001 | 0.394 +/- 0.003 |
 | 0.5 | 0.469 +/- 0.002 | 0.495 +/- 0.001 | 0.465 +/- 0.003 |
 | 1.0 | 0.498 +/- 0.003 | 0.525 +/- 0.002 | 0.490 +/- 0.003 |
 
@@ -195,7 +198,7 @@ Models are trained on IMDB movie reviews and evaluated on both IMDB test (in-dom
 
 | Severity | Random Forest | Linear (Ridge) | XGBoost |
 |---:|---:|---:|---:|
-| 0.0 | 0.408 +/- 0.001 | 0.487 +/- 0.001 | 0.394 +/- 0.003 |
+| 0.0 | 0.408 +/- 0.001 | 0.486 +/- 0.001 | 0.394 +/- 0.003 |
 | 0.5 | 0.451 +/- 0.003 | 0.543 +/- 0.003 | 0.450 +/- 0.008 |
 | 0.9 | 0.561 +/- 0.034 | 0.850 +/- 0.018 | 1.007 +/- 0.090 |
 
@@ -205,12 +208,12 @@ Models are trained on IMDB movie reviews and evaluated on both IMDB test (in-dom
 
 ![Figure 8: Relative RMSE increase vs clean baseline](figures/fig08_airbnb_relative_rmse_increase.png)
 
-The three models start at very different baseline errors (XGBoost = 0.394, RF = 0.408, Linear = 0.487). Comparing raw RMSE increases would be misleading -- the linear model's small absolute increase (+0.039) looks great, but only because it was already inaccurate. This figure instead asks: **"By what percentage did each model's error grow compared to its own clean-data performance?"**
+The three models start at very different baseline errors (XGBoost = 0.394, RF = 0.408, Linear = 0.486). Comparing raw RMSE increases would be misleading -- the linear model's small absolute increase (+0.039) looks great, but only because it was already inaccurate. This figure instead asks: **"By what percentage did each model's error grow compared to its own clean-data performance?"**
 
 For example, under noise at severity 1.0:
 - XGBoost: 0.394 -> 0.490, a **24% increase** from its own baseline
 - RF: 0.408 -> 0.498, a **22% increase** from its own baseline
-- Linear: 0.487 -> 0.525, only an **8% increase** from its own baseline
+- Linear: 0.486 -> 0.525, only an **8% increase** from its own baseline
 
 This puts all three models on the same scale regardless of where they started.
 
@@ -218,10 +221,12 @@ This puts all three models on the same scale regardless of where they started.
 
 ### 5.4 Airbnb Summary
 
-| Corruption | RF RMSE delta | Linear RMSE delta | XGB RMSE delta |
+| Corruption | RF RMSE increase | Linear RMSE increase | XGB RMSE increase |
 |---|---:|---:|---:|
-| Noise (0 -> 1.0) | +0.090 | +0.039 | +0.096 |
-| Missingness (0 -> 0.9) | +0.153 | +0.364 | **+0.613** |
+| Noise (clean vs severity 1.0) | 0.090 | 0.039 | 0.096 |
+| Missingness (clean vs severity 0.9) | 0.153 | 0.364 | **0.613** |
+
+All values = how much RMSE grew from clean baseline to worst severity. Larger = worse.
 
 **Bottom line:** Missingness is the dominant failure mode for regression. XGBoost is strongest on clean data but most brittle under severe feature loss. RF provides the best robustness-accuracy tradeoff.
 
@@ -267,7 +272,7 @@ The rankings are **not universal** -- they depend on the data modality, feature 
 
 | # | File | Description |
 |---|---|---|
-| 1 | `fig01_robustness_heatmap.png` | Full-thesis robustness overview heatmap |
+| 1 | `fig01_robustness_heatmap.png` | Full-thesis robustness overview (% degradation bar chart) |
 | 2 | `fig02_adult_metric_sensitivity.png` | Adult noise: Accuracy vs F1 vs AUROC comparison |
 | 3 | `fig03_adult_auroc_curves.png` | Adult AUROC degradation curves (3 corruptions) |
 | 4 | `fig04_imdb_token_dropout_metrics.png` | IMDB token dropout curves (3 metrics) |
