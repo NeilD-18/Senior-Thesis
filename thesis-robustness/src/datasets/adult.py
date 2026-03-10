@@ -7,7 +7,12 @@ from ..common.registry import register_dataset
 
 
 @register_dataset('adult')
-def load_adult(data_dir: Path = None, **kwargs):
+def load_adult(
+    data_dir: Path = None,
+    use_cache: bool = True,
+    refresh_cache: bool = False,
+    **kwargs
+):
     """
     Load and preprocess Adult Income dataset using UCI ML Repository.
     
@@ -17,6 +22,15 @@ def load_adult(data_dir: Path = None, **kwargs):
         X: Feature matrix
         y: Target labels
     """
+    if data_dir is None:
+        data_dir = Path('data')
+    cache_file = data_dir / 'cache' / 'adult_preprocessed.npz'
+
+    if use_cache and not refresh_cache and cache_file.exists():
+        print(f"Loading Adult dataset from local cache: {cache_file}")
+        with np.load(cache_file) as cached:
+            return cached['X'], cached['y']
+
     try:
         from ucimlrepo import fetch_ucirepo
         
@@ -42,6 +56,10 @@ def load_adult(data_dir: Path = None, **kwargs):
             "ucimlrepo package required. Install with: pip install ucimlrepo"
         )
     except Exception as e:
+        if use_cache and cache_file.exists():
+            print(f"Fetch failed ({e}); falling back to local cache: {cache_file}")
+            with np.load(cache_file) as cached:
+                return cached['X'], cached['y']
         raise RuntimeError(f"Failed to fetch Adult dataset: {e}")
     
     # Handle missing values - replace '?' with NaN
@@ -54,11 +72,9 @@ def load_adult(data_dir: Path = None, **kwargs):
         
         # Encode categorical variables
         categorical_cols = X.select_dtypes(include=['object']).columns
-        le_dict = {}
         for col in categorical_cols:
             le = LabelEncoder()
             X[col] = le.fit_transform(X[col].astype(str))
-            le_dict[col] = le
         
         # Convert to numpy
         X = X.values.astype(float)
@@ -70,5 +86,10 @@ def load_adult(data_dir: Path = None, **kwargs):
     # Handle binary target encoding if needed
     if y.dtype == object or isinstance(y[0], str):
         y = (y == '>50K').astype(int) if isinstance(y[0], str) else y
+
+    if use_cache:
+        cache_file.parent.mkdir(parents=True, exist_ok=True)
+        np.savez_compressed(cache_file, X=X, y=y)
+        print(f"Cached preprocessed Adult dataset to: {cache_file}")
     
     return X, y

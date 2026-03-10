@@ -17,6 +17,23 @@ def create_linear_svm(**kwargs):
     return LinearSVC(**defaults)
 
 
+@register_model('svm_rbf_text')
+def create_svm_rbf_text(**kwargs):
+    """Create RBF-kernel SVM for text."""
+    defaults = {
+        'kernel': 'rbf',
+        'C': 1.0,
+        'gamma': 'scale',
+        'cache_size': 1000,
+        # AUROC can use decision_function directly; enabling probability
+        # makes full-text RBF runs prohibitively slow.
+        'probability': False,
+        'random_state': 42,
+    }
+    defaults.update(kwargs)
+    return SVC(**defaults)
+
+
 @register_model('logistic')
 def create_logistic(**kwargs):
     """Create logistic regression for text."""

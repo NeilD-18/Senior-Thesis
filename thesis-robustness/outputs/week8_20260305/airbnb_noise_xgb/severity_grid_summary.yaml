@@ -1,0 +1,339 @@
+config_file: configs/airbnb_noise.yaml
+model: xgboost_reg
+results:
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.00_seed42_20260305_155905
+  seed: 42
+  severity: 0.0
+  test_metrics:
+    mae: 0.2854297544269105
+    rmse: 0.3964509374476472
+  val_metrics:
+    mae: 0.28381459449124974
+    rmse: 0.39659269343411696
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.00_seed43_20260305_155905
+  seed: 43
+  severity: 0.0
+  test_metrics:
+    mae: 0.28293018828193406
+    rmse: 0.3898074527204041
+  val_metrics:
+    mae: 0.28558869732361797
+    rmse: 0.39543304658881817
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.00_seed44_20260305_155906
+  seed: 44
+  severity: 0.0
+  test_metrics:
+    mae: 0.28448852507035993
+    rmse: 0.3958810721341697
+  val_metrics:
+    mae: 0.2857639971607704
+    rmse: 0.39779980288909367
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.10_seed42_20260305_155907
+  seed: 42
+  severity: 0.1
+  test_metrics:
+    mae: 0.33792008312510224
+    rmse: 0.4483727562687158
+  val_metrics:
+    mae: 0.3444700526114925
+    rmse: 0.4565835344398633
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.10_seed43_20260305_155908
+  seed: 43
+  severity: 0.1
+  test_metrics:
+    mae: 0.33958079264191315
+    rmse: 0.4505080990770793
+  val_metrics:
+    mae: 0.3333792224409946
+    rmse: 0.44391186407828465
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.10_seed44_20260305_155909
+  seed: 44
+  severity: 0.1
+  test_metrics:
+    mae: 0.33697320804918196
+    rmse: 0.4495961552767871
+  val_metrics:
+    mae: 0.3394518527106136
+    rmse: 0.4512278103326124
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.20_seed42_20260305_155910
+  seed: 42
+  severity: 0.2
+  test_metrics:
+    mae: 0.3420084369273699
+    rmse: 0.4540455372421069
+  val_metrics:
+    mae: 0.3487915083393874
+    rmse: 0.46274079993420353
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.20_seed43_20260305_155910
+  seed: 43
+  severity: 0.2
+  test_metrics:
+    mae: 0.3430140696617458
+    rmse: 0.4530911489632084
+  val_metrics:
+    mae: 0.3360823292463846
+    rmse: 0.4474387101846208
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.20_seed44_20260305_155911
+  seed: 44
+  severity: 0.2
+  test_metrics:
+    mae: 0.3445614113730603
+    rmse: 0.45638802280029
+  val_metrics:
+    mae: 0.34605172918901156
+    rmse: 0.45833611901995797
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.30_seed42_20260305_155912
+  seed: 42
+  severity: 0.30000000000000004
+  test_metrics:
+    mae: 0.3429724943976369
+    rmse: 0.4573016055406566
+  val_metrics:
+    mae: 0.3502871029260689
+    rmse: 0.46590942352262044
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.30_seed43_20260305_155913
+  seed: 43
+  severity: 0.30000000000000004
+  test_metrics:
+    mae: 0.3444410169957276
+    rmse: 0.45609189822191953
+  val_metrics:
+    mae: 0.33879006187587546
+    rmse: 0.4527893526114823
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.30_seed44_20260305_155914
+  seed: 44
+  severity: 0.30000000000000004
+  test_metrics:
+    mae: 0.3419947207049005
+    rmse: 0.4564844984877462
+  val_metrics:
+    mae: 0.3435495337479373
+    rmse: 0.4568515935135967
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.40_seed42_20260305_155915
+  seed: 42
+  severity: 0.4
+  test_metrics:
+    mae: 0.3426992153060748
+    rmse: 0.4574373203714832
+  val_metrics:
+    mae: 0.3452894195289574
+    rmse: 0.46101120232163056
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.40_seed43_20260305_155916
+  seed: 43
+  severity: 0.4
+  test_metrics:
+    mae: 0.34386312068942043
+    rmse: 0.45592301178639655
+  val_metrics:
+    mae: 0.33871565077022653
+    rmse: 0.4517806083343575
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.40_seed44_20260305_155916
+  seed: 44
+  severity: 0.4
+  test_metrics:
+    mae: 0.34469753249700846
+    rmse: 0.4604259828442479
+  val_metrics:
+    mae: 0.34442110710903767
+    rmse: 0.4577258438174771
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.50_seed42_20260305_155917
+  seed: 42
+  severity: 0.5
+  test_metrics:
+    mae: 0.34855409838799284
+    rmse: 0.4623100858145064
+  val_metrics:
+    mae: 0.35199509163860115
+    rmse: 0.4679726221280794
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.50_seed43_20260305_155918
+  seed: 43
+  severity: 0.5
+  test_metrics:
+    mae: 0.34987595548322686
+    rmse: 0.46298898956125284
+  val_metrics:
+    mae: 0.3453649232495291
+    rmse: 0.4583226230414659
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.50_seed44_20260305_155919
+  seed: 44
+  severity: 0.5
+  test_metrics:
+    mae: 0.3511653627864838
+    rmse: 0.468351202582942
+  val_metrics:
+    mae: 0.35313589945152074
+    rmse: 0.46748084043983423
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.60_seed42_20260305_155920
+  seed: 42
+  severity: 0.6000000000000001
+  test_metrics:
+    mae: 0.3558261214698785
+    rmse: 0.4692364120373387
+  val_metrics:
+    mae: 0.3587903718120348
+    rmse: 0.47585466034455154
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.60_seed43_20260305_155921
+  seed: 43
+  severity: 0.6000000000000001
+  test_metrics:
+    mae: 0.3517952960583702
+    rmse: 0.4659503621689827
+  val_metrics:
+    mae: 0.34600944689654217
+    rmse: 0.46152137049624475
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.60_seed44_20260305_155922
+  seed: 44
+  severity: 0.6000000000000001
+  test_metrics:
+    mae: 0.35534967953741964
+    rmse: 0.47434315867310883
+  val_metrics:
+    mae: 0.3539439021141527
+    rmse: 0.46934606617656227
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.70_seed42_20260305_155923
+  seed: 42
+  severity: 0.7000000000000001
+  test_metrics:
+    mae: 0.3510935793745869
+    rmse: 0.46815851242845047
+  val_metrics:
+    mae: 0.3558778746345478
+    rmse: 0.4734216758934835
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.70_seed43_20260305_155924
+  seed: 43
+  severity: 0.7000000000000001
+  test_metrics:
+    mae: 0.35448086770062476
+    rmse: 0.4705035784351533
+  val_metrics:
+    mae: 0.3507489641576846
+    rmse: 0.46916436276017826
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.70_seed44_20260305_155925
+  seed: 44
+  severity: 0.7000000000000001
+  test_metrics:
+    mae: 0.35427317393217483
+    rmse: 0.47354965208829586
+  val_metrics:
+    mae: 0.35586746114145495
+    rmse: 0.47126631822890086
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.80_seed42_20260305_155926
+  seed: 42
+  severity: 0.8
+  test_metrics:
+    mae: 0.357445388189375
+    rmse: 0.47766002043185884
+  val_metrics:
+    mae: 0.3593594481989664
+    rmse: 0.479348870825767
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.80_seed43_20260305_155927
+  seed: 43
+  severity: 0.8
+  test_metrics:
+    mae: 0.35992027457042397
+    rmse: 0.47640739430228596
+  val_metrics:
+    mae: 0.35391757832847515
+    rmse: 0.4741360675201405
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.80_seed44_20260305_155927
+  seed: 44
+  severity: 0.8
+  test_metrics:
+    mae: 0.3598218739079423
+    rmse: 0.47931133377930935
+  val_metrics:
+    mae: 0.36010311175454457
+    rmse: 0.4753248211443221
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.90_seed42_20260305_155928
+  seed: 42
+  severity: 0.9
+  test_metrics:
+    mae: 0.36338840607083134
+    rmse: 0.48526878777359866
+  val_metrics:
+    mae: 0.3640128844552241
+    rmse: 0.48619569597487916
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.90_seed43_20260305_155929
+  seed: 43
+  severity: 0.9
+  test_metrics:
+    mae: 0.36898273354732863
+    rmse: 0.48586965826741957
+  val_metrics:
+    mae: 0.3671091356827125
+    rmse: 0.4879390969651012
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_0.90_seed44_20260305_155930
+  seed: 44
+  severity: 0.9
+  test_metrics:
+    mae: 0.3620745551895263
+    rmse: 0.48325694285593135
+  val_metrics:
+    mae: 0.36207977589214874
+    rmse: 0.48035944318777285
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_1.00_seed42_20260305_155931
+  seed: 42
+  severity: 1.0
+  test_metrics:
+    mae: 0.36797627327961724
+    rmse: 0.4908513311726861
+  val_metrics:
+    mae: 0.3719777718208443
+    rmse: 0.4936065865619731
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_1.00_seed43_20260305_155932
+  seed: 43
+  severity: 1.0
+  test_metrics:
+    mae: 0.37778424544989897
+    rmse: 0.4934199651793696
+  val_metrics:
+    mae: 0.373694564002669
+    rmse: 0.49426336435465873
+- run_dir: outputs/week8_20260305/airbnb_noise_xgb/airbnb_xgboost_reg_additive_noise_1.00_seed44_20260305_155933
+  seed: 44
+  severity: 1.0
+  test_metrics:
+    mae: 0.3646254531307118
+    rmse: 0.486895431323537
+  val_metrics:
+    mae: 0.36465667993924333
+    rmse: 0.4834985507631425
+seeds:
+- 42
+- 43
+- 44
+severities:
+- 0.0
+- 0.1
+- 0.2
+- 0.30000000000000004
+- 0.4
+- 0.5
+- 0.6000000000000001
+- 0.7000000000000001
+- 0.8
+- 0.9
+- 1.0
+stability_aggregates:
+- n_seeds: 3
+  severity: 0.0
+- n_seeds: 3
+  severity: 0.1
+- n_seeds: 3
+  severity: 0.2
+- n_seeds: 3
+  severity: 0.30000000000000004
+- n_seeds: 3
+  severity: 0.4
+- n_seeds: 3
+  severity: 0.5
+- n_seeds: 3
+  severity: 0.6000000000000001
+- n_seeds: 3
+  severity: 0.7000000000000001
+- n_seeds: 3
+  severity: 0.8
+- n_seeds: 3
+  severity: 0.9
+- n_seeds: 3
+  severity: 1.0

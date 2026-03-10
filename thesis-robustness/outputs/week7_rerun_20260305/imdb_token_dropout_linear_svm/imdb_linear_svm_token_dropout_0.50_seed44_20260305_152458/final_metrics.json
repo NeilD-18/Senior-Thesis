@@ -1,0 +1,8 @@
+{
+  "val_accuracy": 0.87,
+  "val_f1": 0.8699683554989942,
+  "val_auroc": 0.9462060800000001,
+  "test_accuracy": 0.868,
+  "test_f1": 0.868,
+  "test_auroc": 0.94245872
+}

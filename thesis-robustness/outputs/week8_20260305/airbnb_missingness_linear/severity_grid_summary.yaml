@@ -1,0 +1,389 @@
+config_file: configs/airbnb_missingness.yaml
+model: linear_regression
+results:
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.00_seed42_20260309_005954
+  seed: 42
+  severity: 0.0
+  test_metrics:
+    mae: 0.3641048436793284
+    rmse: 0.4877649548340531
+  val_metrics:
+    mae: 0.3656179386537929
+    rmse: 0.4859579862422195
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.00_seed43_20260309_005954
+  seed: 43
+  severity: 0.0
+  test_metrics:
+    mae: 0.3673296136039795
+    rmse: 0.4864874084120825
+  val_metrics:
+    mae: 0.36263191236729353
+    rmse: 0.4858203291912189
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.00_seed44_20260309_005955
+  seed: 44
+  severity: 0.0
+  test_metrics:
+    mae: 0.3620232866065923
+    rmse: 0.48524234429361635
+  val_metrics:
+    mae: 0.36763986584326563
+    rmse: 0.4888458977909972
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.10_seed42_20260309_005956
+  seed: 42
+  severity: 0.1
+  test_metrics:
+    mae: 0.3659401727021803
+    rmse: 0.490029223218436
+  val_metrics:
+    mae: 0.3657354404190054
+    rmse: 0.4863269014753451
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.10_seed43_20260309_005956
+  seed: 43
+  severity: 0.1
+  test_metrics:
+    mae: 0.36926448887745744
+    rmse: 0.4888793493936886
+  val_metrics:
+    mae: 0.363795777468094
+    rmse: 0.4877456934551569
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.10_seed44_20260309_005957
+  seed: 44
+  severity: 0.1
+  test_metrics:
+    mae: 0.3639416315943237
+    rmse: 0.486825682952995
+  val_metrics:
+    mae: 0.3690345141780856
+    rmse: 0.4904064806556231
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.20_seed42_20260309_005958
+  seed: 42
+  severity: 0.2
+  test_metrics:
+    mae: 0.3693294119297434
+    rmse: 0.4948822683865983
+  val_metrics:
+    mae: 0.36750388901143444
+    rmse: 0.4896274511615082
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.20_seed43_20260309_005959
+  seed: 43
+  severity: 0.2
+  test_metrics:
+    mae: 0.3728154400507809
+    rmse: 0.49449983744844317
+  val_metrics:
+    mae: 0.36680399975603556
+    rmse: 0.49276533409517276
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.20_seed44_20260309_005959
+  seed: 44
+  severity: 0.2
+  test_metrics:
+    mae: 0.36761416232537003
+    rmse: 0.4915356150109454
+  val_metrics:
+    mae: 0.37287869825368475
+    rmse: 0.49527682428188363
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.30_seed42_20260309_010000
+  seed: 42
+  severity: 0.3
+  test_metrics:
+    mae: 0.37528277723224834
+    rmse: 0.5037246831803743
+  val_metrics:
+    mae: 0.37144416179696066
+    rmse: 0.4963731902333443
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.30_seed43_20260309_010001
+  seed: 43
+  severity: 0.3
+  test_metrics:
+    mae: 0.37968980987017303
+    rmse: 0.5052769109045836
+  val_metrics:
+    mae: 0.37263768838140415
+    rmse: 0.5024780437765383
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.30_seed44_20260309_010001
+  seed: 44
+  severity: 0.3
+  test_metrics:
+    mae: 0.3735105204355791
+    rmse: 0.4999018737406237
+  val_metrics:
+    mae: 0.379166514364127
+    rmse: 0.5040050262487972
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.40_seed42_20260309_010002
+  seed: 42
+  severity: 0.4
+  test_metrics:
+    mae: 0.38561738243857724
+    rmse: 0.5193502387576788
+  val_metrics:
+    mae: 0.37947072678519095
+    rmse: 0.5092128410304733
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.40_seed43_20260309_010003
+  seed: 43
+  severity: 0.4
+  test_metrics:
+    mae: 0.38991119850704775
+    rmse: 0.5210551165922703
+  val_metrics:
+    mae: 0.3820674736025566
+    rmse: 0.5169607078883027
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.40_seed44_20260309_010004
+  seed: 44
+  severity: 0.4
+  test_metrics:
+    mae: 0.3828153451245861
+    rmse: 0.513444749548111
+  val_metrics:
+    mae: 0.3882722895007022
+    rmse: 0.5180133375286756
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.50_seed42_20260309_010004
+  seed: 42
+  severity: 0.5
+  test_metrics:
+    mae: 0.4016252545298991
+    rmse: 0.544137935870461
+  val_metrics:
+    mae: 0.3935314165419376
+    rmse: 0.5306788239704248
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.50_seed43_20260309_010005
+  seed: 43
+  severity: 0.5
+  test_metrics:
+    mae: 0.4056560783344627
+    rmse: 0.5456507734320061
+  val_metrics:
+    mae: 0.39641457850387146
+    rmse: 0.5397595109683033
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.50_seed44_20260309_010006
+  seed: 44
+  severity: 0.5
+  test_metrics:
+    mae: 0.39896188639860536
+    rmse: 0.5381338079112451
+  val_metrics:
+    mae: 0.40424992454115677
+    rmse: 0.5432610850770745
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.60_seed42_20260309_010007
+  seed: 42
+  severity: 0.6
+  test_metrics:
+    mae: 0.42826779311238716
+    rmse: 0.585775690012555
+  val_metrics:
+    mae: 0.417560160925577
+    rmse: 0.5673760994827617
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.60_seed43_20260309_010007
+  seed: 43
+  severity: 0.6
+  test_metrics:
+    mae: 0.4285306074112573
+    rmse: 0.5808985331852692
+  val_metrics:
+    mae: 0.41737475180711475
+    rmse: 0.5728379321625541
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.60_seed44_20260309_010008
+  seed: 44
+  severity: 0.6
+  test_metrics:
+    mae: 0.4218956808262262
+    rmse: 0.5737597023278835
+  val_metrics:
+    mae: 0.4273131691889892
+    rmse: 0.5796765379622147
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.70_seed42_20260309_010009
+  seed: 42
+  severity: 0.7
+  test_metrics:
+    mae: 0.4636667249146287
+    rmse: 0.641397125636613
+  val_metrics:
+    mae: 0.45087655870540194
+    rmse: 0.6175319565298063
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.70_seed43_20260309_010010
+  seed: 43
+  severity: 0.7
+  test_metrics:
+    mae: 0.4665332839151127
+    rmse: 0.640947596606142
+  val_metrics:
+    mae: 0.4538593325333332
+    rmse: 0.6294348519684673
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.70_seed44_20260309_010010
+  seed: 44
+  severity: 0.7
+  test_metrics:
+    mae: 0.4579518337301013
+    rmse: 0.6300467407343227
+  val_metrics:
+    mae: 0.46304518696003927
+    rmse: 0.6372322426035367
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.80_seed42_20260309_010011
+  seed: 42
+  severity: 0.8
+  test_metrics:
+    mae: 0.5188655208307855
+    rmse: 0.7272192287023107
+  val_metrics:
+    mae: 0.503461100965407
+    rmse: 0.696906878923337
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.80_seed43_20260309_010012
+  seed: 43
+  severity: 0.8
+  test_metrics:
+    mae: 0.5203892749546458
+    rmse: 0.7249334894880023
+  val_metrics:
+    mae: 0.5061106335681025
+    rmse: 0.709062695340231
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.80_seed44_20260309_010013
+  seed: 44
+  severity: 0.8
+  test_metrics:
+    mae: 0.5108495741432699
+    rmse: 0.711633185786116
+  val_metrics:
+    mae: 0.5160187098773292
+    rmse: 0.7216265799006728
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.90_seed42_20260309_010013
+  seed: 42
+  severity: 0.9
+  test_metrics:
+    mae: 0.5838541575365217
+    rmse: 0.8245791207224618
+  val_metrics:
+    mae: 0.5653436321375548
+    rmse: 0.7869762903212931
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.90_seed43_20260309_010014
+  seed: 43
+  severity: 0.9
+  test_metrics:
+    mae: 0.6114943848095176
+    rmse: 0.8631011745649948
+  val_metrics:
+    mae: 0.5938787439278024
+    rmse: 0.8386566680933243
+- run_dir: outputs/week8_20260305/airbnb_missingness_linear/airbnb_linear_regression_missingness_0.90_seed44_20260309_010015
+  seed: 44
+  severity: 0.9
+  test_metrics:
+    mae: 0.612070957882665
+    rmse: 0.8636136012853245
+  val_metrics:
+    mae: 0.6163836766179875
+    rmse: 0.8770567176677406
+seeds:
+- 42
+- 43
+- 44
+severities:
+- 0.0
+- 0.1
+- 0.2
+- 0.3
+- 0.4
+- 0.5
+- 0.6
+- 0.7
+- 0.8
+- 0.9
+stability_aggregates:
+- n_seeds: 3
+  severity: 0.0
+  test_mae_mean: 0.36448591462996666
+  test_mae_std: 0.002182993029896548
+  test_rmse_mean: 0.48649823584658397
+  test_rmse_std: 0.001029879899044556
+  val_mae_mean: 0.36529657228811735
+  val_mae_std: 0.0020570783099849647
+  val_rmse_mean: 0.48687473774147855
+  val_rmse_std: 0.0013949531226380187
+- n_seeds: 3
+  severity: 0.1
+  test_mae_mean: 0.36638209772465374
+  test_mae_std: 0.0021954006025125435
+  test_rmse_mean: 0.4885780851883732
+  test_rmse_std: 0.0013250755070633269
+  val_mae_mean: 0.36618857735506166
+  val_mae_std: 0.002162574143818304
+  val_rmse_mean: 0.4881596918620417
+  val_rmse_std: 0.0016910130263083564
+- n_seeds: 3
+  severity: 0.2
+  test_mae_mean: 0.3699196714352981
+  test_mae_std: 0.002164043623580176
+  test_rmse_mean: 0.49363924028199563
+  test_rmse_std: 0.0014956587882636514
+  val_mae_mean: 0.3690621956737183
+  val_mae_std: 0.002713758795425503
+  val_rmse_mean: 0.49255653651285486
+  val_rmse_std: 0.0023110677887203997
+- n_seeds: 3
+  severity: 0.3
+  test_mae_mean: 0.37616103584600014
+  test_mae_std: 0.002598000272465092
+  test_rmse_mean: 0.5029678226085272
+  test_rmse_std: 0.0022586698995057546
+  val_mae_mean: 0.3744161215141639
+  val_mae_std: 0.0033941911750006615
+  val_rmse_mean: 0.5009520867528933
+  val_rmse_std: 0.0032972350912241133
+- n_seeds: 3
+  severity: 0.4
+  test_mae_mean: 0.3861146420234037
+  test_mae_std: 0.00291813115165334
+  test_rmse_mean: 0.5179500349660201
+  test_rmse_std: 0.0032608638559271535
+  val_mae_mean: 0.38327016329614993
+  val_mae_std: 0.0036924899849176845
+  val_rmse_mean: 0.5147289621491505
+  val_rmse_std: 0.003924088126506672
+- n_seeds: 3
+  severity: 0.5
+  test_mae_mean: 0.40208107308765567
+  test_mae_std: 0.002751833247942287
+  test_rmse_mean: 0.5426408390712374
+  test_rmse_std: 0.0032462457064288395
+  val_mae_mean: 0.3980653065289886
+  val_mae_std: 0.0045288174094357
+  val_rmse_mean: 0.5378998066719342
+  val_rmse_std: 0.005302339024206076
+- n_seeds: 3
+  severity: 0.6
+  test_mae_mean: 0.42623136044995685
+  test_mae_std: 0.0030676653651322333
+  test_rmse_mean: 0.5801446418419026
+  test_rmse_std: 0.004934386427763609
+  val_mae_mean: 0.42074936064056034
+  val_mae_std: 0.004641930714018559
+  val_rmse_mean: 0.5732968565358435
+  val_rmse_std: 0.005032107271114272
+- n_seeds: 3
+  severity: 0.7
+  test_mae_mean: 0.46271728085328084
+  test_mae_std: 0.00356710945899519
+  test_rmse_mean: 0.6374638209923592
+  test_rmse_std: 0.005247877587045756
+  val_mae_mean: 0.4559270260662582
+  val_mae_std: 0.005178506593569498
+  val_rmse_mean: 0.6280663503672702
+  val_rmse_std: 0.008100613775966346
+- n_seeds: 3
+  severity: 0.8
+  test_mae_mean: 0.5167014566429005
+  test_mae_std: 0.00418440384042192
+  test_rmse_mean: 0.7212619679921429
+  test_rmse_std: 0.0068722260351496665
+  val_mae_mean: 0.5085301481369462
+  val_mae_std: 0.005404561250020374
+  val_rmse_mean: 0.709198718054747
+  val_rmse_std: 0.010092234002319872
+- n_seeds: 3
+  severity: 0.9
+  test_mae_mean: 0.6024731667429014
+  test_mae_std: 0.013167731695261944
+  test_rmse_mean: 0.8504312988575937
+  test_rmse_std: 0.01828144744513541
+  val_mae_mean: 0.5918686842277816
+  val_mae_std: 0.020885430170964867
+  val_rmse_mean: 0.8342298920274528
+  val_rmse_std: 0.036908157250872355

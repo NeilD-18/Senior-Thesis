@@ -18,7 +18,7 @@ def generate_severity_grid(min_severity=0.0, max_severity=1.0, n_points=11):
 
 
 def _aggregate_stability(results, severities):
-    """Compute mean and std per severity across seeds (for classification metrics)."""
+    """Compute mean and std per severity across seeds."""
     from collections import defaultdict
     by_severity = defaultdict(list)
     for r in results:
@@ -31,7 +31,8 @@ def _aggregate_stability(results, severities):
         runs = by_severity[sev]
         agg = {'severity': sev, 'n_seeds': len(runs)}
         for prefix in ('val_', 'test_'):
-            for key in ('accuracy', 'f1', 'auroc'):
+            # Support both classification and regression metrics.
+            for key in ('accuracy', 'f1', 'auroc', 'rmse', 'mae'):
                 k = prefix + key
                 vals = []
                 for run in runs:

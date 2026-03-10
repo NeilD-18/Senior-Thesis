@@ -1,0 +1,310 @@
+config_file: configs/airbnb_missingness.yaml
+model: random_forest_reg
+results:
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.00_seed42_20260305_155935
+  seed: 42
+  severity: 0.0
+  test_metrics:
+    mae: 0.29633023664370867
+    rmse: 0.40930399612078494
+  val_metrics:
+    mae: 0.3003011832144923
+    rmse: 0.41428468623630793
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.00_seed43_20260305_155944
+  seed: 43
+  severity: 0.0
+  test_metrics:
+    mae: 0.2966318021474689
+    rmse: 0.4068624719737663
+  val_metrics:
+    mae: 0.29884237898903454
+    rmse: 0.410893033152472
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.00_seed44_20260305_155952
+  seed: 44
+  severity: 0.0
+  test_metrics:
+    mae: 0.29652255375213105
+    rmse: 0.4086532604357059
+  val_metrics:
+    mae: 0.3003661062828738
+    rmse: 0.4134094675698544
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.10_seed42_20260305_160001
+  seed: 42
+  severity: 0.1
+  test_metrics:
+    mae: 0.3039966834559321
+    rmse: 0.4175477253712491
+  val_metrics:
+    mae: 0.30820268349717667
+    rmse: 0.4209911969817927
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.10_seed43_20260305_160009
+  seed: 43
+  severity: 0.1
+  test_metrics:
+    mae: 0.30595943732579817
+    rmse: 0.4158161052680914
+  val_metrics:
+    mae: 0.30738944014239855
+    rmse: 0.42044409872690286
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.10_seed44_20260305_160018
+  seed: 44
+  severity: 0.1
+  test_metrics:
+    mae: 0.3064946851447374
+    rmse: 0.42112072501993386
+  val_metrics:
+    mae: 0.3088809205690573
+    rmse: 0.42240163436358225
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.20_seed42_20260305_160027
+  seed: 42
+  severity: 0.2
+  test_metrics:
+    mae: 0.3095770853964771
+    rmse: 0.4230235123860591
+  val_metrics:
+    mae: 0.3128677824290599
+    rmse: 0.42503799216809707
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.20_seed43_20260305_160036
+  seed: 43
+  severity: 0.2
+  test_metrics:
+    mae: 0.3111169155973217
+    rmse: 0.4215864182964496
+  val_metrics:
+    mae: 0.313246982854091
+    rmse: 0.42644580635334156
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.20_seed44_20260305_160044
+  seed: 44
+  severity: 0.2
+  test_metrics:
+    mae: 0.31212958933643586
+    rmse: 0.4271638715331455
+  val_metrics:
+    mae: 0.31306367744071567
+    rmse: 0.4269591382884058
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.30_seed42_20260305_160053
+  seed: 42
+  severity: 0.30000000000000004
+  test_metrics:
+    mae: 0.3149557773924977
+    rmse: 0.4288465635499165
+  val_metrics:
+    mae: 0.31911784380969227
+    rmse: 0.4312502971540084
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.30_seed43_20260305_160101
+  seed: 43
+  severity: 0.30000000000000004
+  test_metrics:
+    mae: 0.31674180422610637
+    rmse: 0.4280882370017076
+  val_metrics:
+    mae: 0.3170741155086675
+    rmse: 0.4314973242230137
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.30_seed44_20260305_160109
+  seed: 44
+  severity: 0.30000000000000004
+  test_metrics:
+    mae: 0.32057455655704414
+    rmse: 0.4359001864278069
+  val_metrics:
+    mae: 0.3211906057487118
+    rmse: 0.4354538769072306
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.40_seed42_20260305_160118
+  seed: 42
+  severity: 0.4
+  test_metrics:
+    mae: 0.3253410131761451
+    rmse: 0.43930796064706595
+  val_metrics:
+    mae: 0.33064394004758
+    rmse: 0.44247613879766323
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.40_seed43_20260305_160126
+  seed: 43
+  severity: 0.4
+  test_metrics:
+    mae: 0.3251594645023172
+    rmse: 0.436714794141465
+  val_metrics:
+    mae: 0.3273410980826556
+    rmse: 0.44271996390996854
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.40_seed44_20260305_160134
+  seed: 44
+  severity: 0.4
+  test_metrics:
+    mae: 0.326810332007617
+    rmse: 0.44047488225357767
+  val_metrics:
+    mae: 0.3280622465017242
+    rmse: 0.4426306541290418
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.50_seed42_20260305_160142
+  seed: 42
+  severity: 0.5
+  test_metrics:
+    mae: 0.33394393534384537
+    rmse: 0.44904902997108076
+  val_metrics:
+    mae: 0.340245045536645
+    rmse: 0.45234120497270286
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.50_seed43_20260305_160149
+  seed: 43
+  severity: 0.5
+  test_metrics:
+    mae: 0.33690018634580704
+    rmse: 0.44840458438874325
+  val_metrics:
+    mae: 0.33682010636691656
+    rmse: 0.45302834352340704
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.50_seed44_20260305_160156
+  seed: 44
+  severity: 0.5
+  test_metrics:
+    mae: 0.33660150807181516
+    rmse: 0.45406190159069065
+  val_metrics:
+    mae: 0.3378643734226553
+    rmse: 0.45574370564481603
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.60_seed42_20260305_160203
+  seed: 42
+  severity: 0.6000000000000001
+  test_metrics:
+    mae: 0.3454277590019015
+    rmse: 0.46279710790876666
+  val_metrics:
+    mae: 0.35089862481556194
+    rmse: 0.464981795990559
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.60_seed43_20260305_160209
+  seed: 43
+  severity: 0.6000000000000001
+  test_metrics:
+    mae: 0.3492686582741305
+    rmse: 0.465037496544861
+  val_metrics:
+    mae: 0.34969868437194646
+    rmse: 0.46863282481001683
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.60_seed44_20260305_160215
+  seed: 44
+  severity: 0.6000000000000001
+  test_metrics:
+    mae: 0.3471611684851717
+    rmse: 0.4650487497937197
+  val_metrics:
+    mae: 0.34566478325801825
+    rmse: 0.46524077648666184
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.70_seed42_20260305_160221
+  seed: 42
+  severity: 0.7000000000000001
+  test_metrics:
+    mae: 0.36429608368926103
+    rmse: 0.4857569909033392
+  val_metrics:
+    mae: 0.37246331070858535
+    rmse: 0.4905485752742018
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.70_seed43_20260305_160225
+  seed: 43
+  severity: 0.7000000000000001
+  test_metrics:
+    mae: 0.36135835478706624
+    rmse: 0.4785771700048724
+  val_metrics:
+    mae: 0.36446495090172626
+    rmse: 0.4870073612697858
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.70_seed44_20260305_160230
+  seed: 44
+  severity: 0.7000000000000001
+  test_metrics:
+    mae: 0.35703446406077033
+    rmse: 0.47682119904337067
+  val_metrics:
+    mae: 0.3548675347376115
+    rmse: 0.47573773518464957
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.80_seed42_20260305_160235
+  seed: 42
+  severity: 0.8
+  test_metrics:
+    mae: 0.4039754477610402
+    rmse: 0.5271385682905725
+  val_metrics:
+    mae: 0.4123130969508091
+    rmse: 0.5372404031015153
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.80_seed43_20260305_160239
+  seed: 43
+  severity: 0.8
+  test_metrics:
+    mae: 0.3805682455493648
+    rmse: 0.5026675517517156
+  val_metrics:
+    mae: 0.37978108383568343
+    rmse: 0.5062238336803742
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.80_seed44_20260305_160242
+  seed: 44
+  severity: 0.8
+  test_metrics:
+    mae: 0.386367984699198
+    rmse: 0.5095680711229449
+  val_metrics:
+    mae: 0.3866763082173195
+    rmse: 0.5100757508269753
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.90_seed42_20260305_160246
+  seed: 42
+  severity: 0.9
+  test_metrics:
+    mae: 0.45878173432702174
+    rmse: 0.5832039362532303
+  val_metrics:
+    mae: 0.45765675849723203
+    rmse: 0.5831500462207684
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.90_seed43_20260305_160249
+  seed: 43
+  severity: 0.9
+  test_metrics:
+    mae: 0.460575740313996
+    rmse: 0.5863106719029958
+  val_metrics:
+    mae: 0.455922217204399
+    rmse: 0.5817473308264268
+- run_dir: outputs/week8_20260305/airbnb_missingness_rf/airbnb_random_forest_reg_missingness_0.90_seed44_20260305_160252
+  seed: 44
+  severity: 0.9
+  test_metrics:
+    mae: 0.3897213153905072
+    rmse: 0.5136683039471587
+  val_metrics:
+    mae: 0.3899971365279303
+    rmse: 0.5136335768204146
+seeds:
+- 42
+- 43
+- 44
+severities:
+- 0.0
+- 0.1
+- 0.2
+- 0.30000000000000004
+- 0.4
+- 0.5
+- 0.6000000000000001
+- 0.7000000000000001
+- 0.8
+- 0.9
+- 1.0
+stability_aggregates:
+- n_seeds: 3
+  severity: 0.0
+- n_seeds: 3
+  severity: 0.1
+- n_seeds: 3
+  severity: 0.2
+- n_seeds: 3
+  severity: 0.30000000000000004
+- n_seeds: 3
+  severity: 0.4
+- n_seeds: 3
+  severity: 0.5
+- n_seeds: 3
+  severity: 0.6000000000000001
+- n_seeds: 3
+  severity: 0.7000000000000001
+- n_seeds: 3
+  severity: 0.8
+- n_seeds: 3
+  severity: 0.9
