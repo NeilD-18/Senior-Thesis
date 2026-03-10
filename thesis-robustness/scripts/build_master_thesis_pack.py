@@ -222,6 +222,215 @@ def plot_airbnb_relative(outputs_root: Path, output_path: Path):
     plt.close(fig)
 
 
+def plot_robustness_heatmap(summary, output_path: Path):
+    """Single-figure overview: every model x every corruption, color = degradation magnitude."""
+    import matplotlib.colors as mcolors
+
+    rows_cfg = [
+        ("Adult Noise",        "adult",  "noise",       "RF",                       "delta_test_auroc", 100),
+        ("Adult Noise",        "adult",  "noise",       "XGB",                      "delta_test_auroc", 100),
+        ("Adult Noise",        "adult",  "noise",       "SVM-RBF",                  "delta_test_auroc", 100),
+        ("Adult Missingness",  "adult",  "missingness", "RF",                       "delta_test_auroc", 100),
+        ("Adult Missingness",  "adult",  "missingness", "XGB",                      "delta_test_auroc", 100),
+        ("Adult Missingness",  "adult",  "missingness", "SVM-RBF",                  "delta_test_auroc", 100),
+        ("Adult Imbalance",    "adult",  "imbalance",   "RF",                       "delta_test_auroc", 100),
+        ("Adult Imbalance",    "adult",  "imbalance",   "XGB",                      "delta_test_auroc", 100),
+        ("Adult Imbalance",    "adult",  "imbalance",   "SVM-RBF",                  "delta_test_auroc", 100),
+        ("IMDB Dropout",       "imdb_token_dropout", None, "Linear SVM",            "delta_test_auroc", 100),
+        ("IMDB Dropout",       "imdb_token_dropout", None, "Random Forest",         "delta_test_auroc", 100),
+        ("IMDB Dropout",       "imdb_token_dropout", None, "XGBoost",               "delta_test_auroc", 100),
+        ("IMDB Domain Shift",  "imdb_domain_shift",  None, "Linear SVM",            "drop_auroc_pp",   -1),
+        ("IMDB Domain Shift",  "imdb_domain_shift",  None, "Random Forest",         "drop_auroc_pp",   -1),
+        ("IMDB Domain Shift",  "imdb_domain_shift",  None, "XGBoost",               "drop_auroc_pp",   -1),
+        ("Airbnb Noise",       "airbnb", "noise",       "Random Forest",            "delta_test_rmse",  1),
+        ("Airbnb Noise",       "airbnb", "noise",       "Linear (Ridge fallback)",  "delta_test_rmse",  1),
+        ("Airbnb Noise",       "airbnb", "noise",       "XGBoost",                  "delta_test_rmse",  1),
+        ("Airbnb Missingness", "airbnb", "missingness", "Random Forest",            "delta_test_rmse",  1),
+        ("Airbnb Missingness", "airbnb", "missingness", "Linear (Ridge fallback)",  "delta_test_rmse",  1),
+        ("Airbnb Missingness", "airbnb", "missingness", "XGBoost",                  "delta_test_rmse",  1),
+    ]
+
+    experiment_labels = []
+    model_labels = []
+    raw_values = []
+    display_values = []
+
+    for exp_label, block, corr, model, metric_key, scale in rows_cfg:
+        if corr is not None:
+            val = summary[block][corr][model][metric_key]
+        else:
+            val = summary[block][model][metric_key]
+
+        if block == "airbnb":
+            display = val
+            severity = -abs(val)
+        elif metric_key == "drop_auroc_pp":
+            display = -val
+            severity = -val
+        else:
+            display = val * (scale if scale != 100 else 1)
+            if scale == 100:
+                display = val * 100
+            severity = val * 100
+        raw_values.append(severity)
+        display_values.append(display)
+        experiment_labels.append(exp_label)
+        model_labels.append(model)
+
+    unique_experiments = []
+    for e in experiment_labels:
+        if e not in unique_experiments:
+            unique_experiments.append(e)
+    unique_models_per_exp = {}
+    for e, m in zip(experiment_labels, model_labels):
+        unique_models_per_exp.setdefault(e, [])
+        if m not in unique_models_per_exp[e]:
+            unique_models_per_exp[e].append(m)
+
+    n_rows = len(unique_experiments)
+    max_models = max(len(v) for v in unique_models_per_exp.values())
+
+    grid = np.full((n_rows, max_models), np.nan)
+    display_grid = np.full((n_rows, max_models), np.nan)
+    label_grid = [[""] * max_models for _ in range(n_rows)]
+    is_rmse = [False] * n_rows
+
+    idx = 0
+    for i, exp in enumerate(unique_experiments):
+        models = unique_models_per_exp[exp]
+        if "airbnb" in exp.lower():
+            is_rmse[i] = True
+        for j, model in enumerate(models):
+            grid[i, j] = raw_values[idx]
+            display_grid[i, j] = display_values[idx]
+            label_grid[i][j] = model
+            idx += 1
+
+    auroc_vals = [grid[i, j] for i in range(n_rows) for j in range(max_models) if not np.isnan(grid[i, j]) and not is_rmse[i]]
+    rmse_vals = [grid[i, j] for i in range(n_rows) for j in range(max_models) if not np.isnan(grid[i, j]) and is_rmse[i]]
+
+    vmin_auroc = min(auroc_vals) if auroc_vals else -15
+    vmax_auroc = max(max(auroc_vals), 0) if auroc_vals else 5
+    vmin_rmse = min(rmse_vals) if rmse_vals else -0.7
+    vmax_rmse = 0
+
+    norm_auroc = mcolors.TwoSlopeNorm(vmin=vmin_auroc, vcenter=0, vmax=max(vmax_auroc, 1))
+
+    fig, ax = plt.subplots(figsize=(9.5, 7.5))
+    cmap = plt.cm.RdYlGn
+
+    for i in range(n_rows):
+        for j in range(max_models):
+            if np.isnan(grid[i, j]):
+                continue
+            val = grid[i, j]
+            if is_rmse[i]:
+                normed = 1.0 - min(abs(val) / 0.65, 1.0)
+                color = cmap(normed * 0.5)
+            else:
+                color = cmap(norm_auroc(val))
+
+            ax.add_patch(plt.Rectangle((j - 0.5, i - 0.5), 1, 1, facecolor=color, edgecolor="white", linewidth=2))
+
+            dv = display_grid[i, j]
+            if is_rmse[i]:
+                cell_text = f"+{dv:.3f}"
+            elif dv > 0:
+                cell_text = f"+{dv:.1f} pp"
+            else:
+                cell_text = f"{dv:.1f} pp"
+            text_color = "white" if abs(val) > (8 if not is_rmse[i] else 0.3) else "#222222"
+            ax.text(j, i + 0.12, cell_text, ha="center", va="center", fontsize=9, fontweight="bold", color=text_color)
+            ax.text(j, i - 0.18, label_grid[i][j], ha="center", va="center", fontsize=7.5, color=text_color, alpha=0.85)
+
+    ax.set_xlim(-0.5, max_models - 0.5)
+    ax.set_ylim(n_rows - 0.5, -0.5)
+    ax.set_xticks([])
+    ax.set_yticks(range(n_rows))
+    ax.set_yticklabels(unique_experiments, fontsize=9.5)
+    ax.set_title("Robustness Overview: Performance Change at Worst Severity", fontsize=13, fontweight="bold", pad=14)
+    ax.text(0.5, -0.04, "Green = robust (small change)     Red = fragile (large degradation)\nClassification cells: AUROC change in pp     Regression cells: RMSE increase (absolute)",
+            transform=ax.transAxes, ha="center", va="top", fontsize=8.5, color="#555555")
+
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+    ax.tick_params(left=False, bottom=False)
+
+    fig.tight_layout()
+    fig.savefig(output_path, bbox_inches="tight", facecolor="white")
+    plt.close(fig)
+
+
+def plot_adult_multimetric(outputs_root: Path, output_path: Path):
+    """Adult noise: Accuracy vs F1 vs AUROC side-by-side to show metric sensitivity."""
+    model_map = {
+        "rf": ("Random Forest", "#2E86AB"),
+        "xgb": ("XGBoost", "#E94F37"),
+        "svm": ("SVM-RBF", "#44AF69"),
+    }
+    metric_cfg = [
+        ("test_accuracy", "Accuracy"),
+        ("test_f1", "F1 Score"),
+        ("test_auroc", "AUROC"),
+    ]
+
+    fig, axes = plt.subplots(1, 3, figsize=(15, 4.5))
+    for ax, (metric_key, metric_label) in zip(axes, metric_cfg):
+        for key, (label, color) in model_map.items():
+            rows = load_json(outputs_root / f"week6_rerun/adult_noise_{key}/stability_summary.json")
+            rows = sorted(rows, key=lambda r: r["severity"])
+            x = [r["severity"] for r in rows]
+            y = [r[f"{metric_key}_mean"] for r in rows]
+            yerr = [r.get(f"{metric_key}_std", 0.0) for r in rows]
+            ax.errorbar(x, y, yerr=yerr, marker="o", capsize=3, linewidth=2, color=color, alpha=0.9, label=label)
+        ax.set_title(metric_label)
+        ax.set_xlabel("Noise Severity")
+        ax.set_ylabel(metric_label)
+        ax.set_xlim([-0.02, 1.02])
+        ax.grid(True, alpha=0.25)
+
+    axes[0].legend(loc="best", framealpha=0.9)
+    axes[0].set_ylim([0.83, 0.86])
+    axes[1].set_ylim([0.76, 0.845])
+    axes[2].set_ylim([0.65, 0.90])
+    fig.suptitle("Adult Noise: Why Metric Choice Matters", fontweight="bold", y=1.03)
+    fig.tight_layout()
+    fig.savefig(output_path, bbox_inches="tight", facecolor="white")
+    plt.close(fig)
+
+
+def plot_imdb_domain_shift_sidebyside(summary, output_path: Path):
+    """IMDB vs Amazon: side-by-side absolute performance for each metric."""
+    models = ["Linear SVM", "Random Forest", "XGBoost"]
+    metric_pairs = [
+        ("imdb_accuracy", "amazon_accuracy", "Accuracy"),
+        ("imdb_f1", "amazon_f1", "F1 Score"),
+        ("imdb_auroc", "amazon_auroc", "AUROC"),
+    ]
+    fig, axes = plt.subplots(1, 3, figsize=(15, 4.5))
+    x = np.arange(len(models))
+    width = 0.32
+    for ax, (imdb_key, amazon_key, label) in zip(axes, metric_pairs):
+        imdb_vals = [summary["imdb_domain_shift"][m][imdb_key] for m in models]
+        amazon_vals = [summary["imdb_domain_shift"][m][amazon_key] for m in models]
+        ax.bar(x - width / 2, imdb_vals, width=width, color="#2E86AB", alpha=0.9, label="IMDB (in-domain)")
+        ax.bar(x + width / 2, amazon_vals, width=width, color="#E94F37", alpha=0.9, label="Amazon (out-of-domain)")
+        for i, (vi, va) in enumerate(zip(imdb_vals, amazon_vals)):
+            drop = (vi - va) * 100
+            ax.annotate(f"-{drop:.1f} pp", xy=(x[i], min(vi, va) - 0.01),
+                        fontsize=8, fontweight="bold", color="#333333", ha="center", va="top")
+        ax.set_xticks(x)
+        ax.set_xticklabels(models, rotation=10, fontsize=9)
+        ax.set_ylabel(label)
+        ax.set_title(label)
+        ax.grid(True, axis="y", alpha=0.25)
+    axes[0].legend(loc="upper right", framealpha=0.9)
+    fig.suptitle("IMDB vs Amazon: In-Domain vs Out-of-Domain Performance", fontweight="bold", y=1.03)
+    fig.tight_layout()
+    fig.savefig(output_path, bbox_inches="tight", facecolor="white")
+    plt.close(fig)
+
+
 def export_master_tables(summary, tables_dir: Path):
     tables_dir.mkdir(parents=True, exist_ok=True)
 
@@ -366,12 +575,14 @@ def main():
 
     summary = load_json(master_dir / "master_summary_stats.json")
 
-    plot_run_coverage(summary, figures_dir / "fig01_run_coverage.png")
-    plot_adult_auroc_curves(outputs_root, figures_dir / "fig02_adult_auroc_curves.png")
-    plot_imdb_token_dropout(outputs_root, figures_dir / "fig03_imdb_token_dropout_metrics.png")
-    plot_imdb_domain_shift(summary, figures_dir / "fig04_imdb_domain_shift_drops.png")
-    plot_airbnb_absolute(outputs_root, figures_dir / "fig05_airbnb_absolute_curves.png")
-    plot_airbnb_relative(outputs_root, figures_dir / "fig06_airbnb_relative_rmse_increase.png")
+    plot_robustness_heatmap(summary, figures_dir / "fig01_robustness_heatmap.png")
+    plot_adult_multimetric(outputs_root, figures_dir / "fig02_adult_metric_sensitivity.png")
+    plot_adult_auroc_curves(outputs_root, figures_dir / "fig03_adult_auroc_curves.png")
+    plot_imdb_token_dropout(outputs_root, figures_dir / "fig04_imdb_token_dropout_metrics.png")
+    plot_imdb_domain_shift_sidebyside(summary, figures_dir / "fig05_imdb_domain_shift_sidebyside.png")
+    plot_imdb_domain_shift(summary, figures_dir / "fig06_imdb_domain_shift_drops.png")
+    plot_airbnb_absolute(outputs_root, figures_dir / "fig07_airbnb_absolute_curves.png")
+    plot_airbnb_relative(outputs_root, figures_dir / "fig08_airbnb_relative_rmse_increase.png")
 
     export_master_tables(summary, tables_dir)
 

@@ -58,26 +58,32 @@ def plot_master(summary, output_path: Path):
     ax.grid(True, axis="y", alpha=0.25)
     ax.legend(loc="best", framealpha=0.9)
 
-    # Panel 2: IMDB token-dropout vs domain-shift AUROC penalties.
-    imdb_dropout = summary["imdb_token_dropout"]
+    # Panel 2: IMDB in-domain vs out-of-domain absolute AUROC.
     imdb_shift = summary["imdb_domain_shift"]
     text_models = ["Linear SVM", "Random Forest", "XGBoost"]
+    imdb_auroc = [imdb_shift[m]["imdb_auroc"] for m in text_models]
+    amazon_auroc = [imdb_shift[m]["amazon_auroc"] for m in text_models]
     x = np.arange(len(text_models))
-    width = 0.35
-    # Token dropout penalty is clean - worst (positive => degradation).
-    dropout_penalty = [-(imdb_dropout[m]["delta_test_auroc"] * 100) for m in text_models]
-    # Domain-shift penalty is imdb_test - amazon AUROC (already positive for degradation).
-    shift_penalty = [imdb_shift[m]["drop_auroc_pp"] for m in text_models]
+    width = 0.32
     ax = axes[1]
-    ax.bar(x - width / 2, dropout_penalty, width=width, color="#6C5CE7", alpha=0.9, label="Token dropout (0.5 vs clean)")
-    ax.bar(x + width / 2, shift_penalty, width=width, color="#F39C12", alpha=0.9, label="Domain shift (Amazon vs IMDB)")
-    ax.axhline(0, color="#666666", linewidth=1)
+    bars_imdb = ax.bar(x - width / 2, imdb_auroc, width=width, color="#2E86AB", alpha=0.9, label="IMDB (in-domain)")
+    bars_amazon = ax.bar(x + width / 2, amazon_auroc, width=width, color="#E94F37", alpha=0.9, label="Amazon (out-of-domain)")
+    for i, (v_imdb, v_amazon) in enumerate(zip(imdb_auroc, amazon_auroc)):
+        drop = (v_imdb - v_amazon) * 100
+        mid_y = (v_imdb + v_amazon) / 2
+        ax.annotate(
+            f"-{drop:.1f} pp",
+            xy=(x[i] + width * 0.6, mid_y),
+            fontsize=8.5, fontweight="bold", color="#333333",
+            ha="left", va="center",
+        )
     ax.set_xticks(x)
     ax.set_xticklabels(text_models, rotation=10)
-    ax.set_ylabel("AUROC penalty (pp)\n(higher = worse)")
-    ax.set_title("IMDB Text: Synthetic vs Real Shift")
+    ax.set_ylabel("Test AUROC")
+    ax.set_ylim([0.78, 0.96])
+    ax.set_title("IMDB: Domain Shift Penalty")
     ax.grid(True, axis="y", alpha=0.25)
-    ax.legend(loc="upper left", framealpha=0.9)
+    ax.legend(loc="upper right", framealpha=0.9)
 
     # Panel 3: Airbnb RMSE increases for noise vs missingness.
     airbnb = summary["airbnb"]
